@@ -1,0 +1,44 @@
+{
+  "name": "pulse",
+  "version": "0.0.1",
+  "description": "Pulse App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.babel.js",
+    "build": "webpack --watch"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "webpack"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "^1.13.3",
+    "classnames": "^2.1.2",
+    "express": "^4.13.3",
+    "qs": "^5.0.0",
+    "react": "^0.13.3",
+    "react-redux": "^0.2.1",
+    "redux": "^1.0.0-rc",
+    "redux-logger": "^1.0.6",
+    "redux-thunk": "^0.1.0",
+    "rethinkdb": "^2.1.1",
+    "serve-static": "^1.10.0",
+    "superagent": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "babel-core": "^5.6.18",
+    "babel-loader": "^5.1.4",
+    "css-loader": "^0.17.0",
+    "node-libs-browser": "^0.5.2",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.2.7",
+    "redux-devtools": "^0.1.2",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.9.11",
+    "webpack-dev-server": "^1.9.0"
+  }
+}

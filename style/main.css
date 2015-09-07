@@ -1,0 +1,74 @@
+body {
+  background-color: #2C4770;
+  margin: 20px;
+}
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.pulseContainer {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #052657;
+  color: #AA6639;
+}
+
+.header h1 {
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.outcome {
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+.event-summary {
+  border-bottom: 2px solid rgba(0,0,0, 0.4);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.event-summary span {
+  margin: 5px;
+}
+
+.val {
+  font-weight: 700;
+}
+
+.event-input input, .event-input button, .event-input label {
+  margin-right: 6px;
+}
+
+.event-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.event-list li {
+  padding: 10px 20px;
+}
+
+.event-list li.odd {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.event-list form {
+  margin: 0;
+}
+
+.event-list fieldset {
+  padding: 0;
+}
+
+.destroy::before {
+  content: 'x';
+}
+
