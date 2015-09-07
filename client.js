@@ -3,8 +3,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from 'redux-logger';
 import { Provider } from 'react-redux';
-import PulseApp from './containers/PulseApp';
-import pulseApp from './reducers';
+import PulseApp from './universal/containers/PulseApp';
+import pulseApp from './universal/reducers';
 import './style/pure.css';
 import './style/main.css';
 

@@ -53,7 +53,7 @@ export default function pulses(state = initialState, action) {
       error: null,
       events: state.events.map(event =>
         event.id === action.event.id ?
-          { ...event, text: action.event.text, value: action.event.value } :
+          { id: event.id , text: action.event.text, value: action.event.value } :
           event
       )
     });
