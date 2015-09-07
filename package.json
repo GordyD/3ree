@@ -18,7 +18,6 @@
     "body-parser": "^1.13.3",
     "classnames": "^2.1.2",
     "express": "^4.13.3",
-    "qs": "^5.0.0",
     "react": "^0.13.3",
     "react-redux": "^0.2.1",
     "redux": "^1.0.0-rc",
