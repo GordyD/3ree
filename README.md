@@ -1,8 +1,24 @@
-## Pulse 
+## 3ree
 
-An event tracking system written with Redux + React + RethinkDB + Express.
+An example universal JS application written with *Re*act + *Re*dux + *Re*thinkDB + *E*xpress.
 
 This project was initially conceived to see experiment with using these technologies in conjunction with one-another. It is a work in progress.
 
-I intend to add in the use of Web Sockets and RethinkDB changefeeds to power server-side initiated actions.
+Main Features:
+ - Universal (Isomorphic) Javascript
+ - Asyncronous example
+ - Use of RethinkDB Changefeeds for Realtime
+
+To Do:
+ - Add in React Router 
+
+Tech used:
+ - React - view layer
+ - Redux - state management
+ - RethinkDB - persistance layer
+ - Express - server framework
+ - Socket.io - for realtime communication between clients and server
+ - Webpack - module bundling + build for client
+ - Jade - view templates
+ - Superagent - universal http requests
 
