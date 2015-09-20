@@ -21,25 +21,6 @@ export function handleRender(req, res) {
     );
 
     // Send the rendered page back to the client
-    res.send(renderFullPage(html, store.getState()));
+    res.render('index', { html: html, initialState: JSON.stringify(store.getState()) });
   });
-}
-
-function renderFullPage(html, initialState) {
-  return `
-    <!doctype html>
-    <html>
-      <head>
-        <title>Pulse Universal</title>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,200' rel='stylesheet' type='text/css'>
-      </head>
-      <body>
-        <div id="app">${html}</div>
-        <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
-        </script>
-        <script src="/bundle.js"></script>
-      </body>
-    </html>
-    `;
 }

@@ -1,12 +1,23 @@
 import path from 'path';
 import bodyParser from 'body-parser';
 import Express from 'express';
+import http from 'http';
+import SocketIO from 'socket.io';
 
 import * as api from './server/api/http';
+import * as eventService from './server/api/service/event';
 import * as uni from './server/universalApp.js'
 
 const app = Express();
+const httpServer = http.Server(app);
 const port = 3000;
+
+var io = SocketIO(httpServer);
+
+io.on('connection', (socket) => console.log('connected'));
+
+app.set('views', path.join(__dirname, 'server', 'views'));
+app.set('view engine', 'jade');
 
 /**
  * Server middleware
@@ -30,4 +41,6 @@ app.post('/api/0/events', api.addEvent);
 app.post('/api/0/events/:id', api.editEvent);
 app.delete('/api/0/events/:id', api.deleteEvent);
 
-app.listen(port);
+eventService.liveUpdates(io);
+
+httpServer.listen(port);

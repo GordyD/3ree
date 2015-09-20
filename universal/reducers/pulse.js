@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   isWorking: false,
+  userId: null,
   error: null,
   events: []
 };
@@ -22,7 +23,7 @@ export default function pulses(state = initialState, action) {
   case ADD_EVENT_SUCCESS:
     return Object.assign({}, state, {
       isWorking: false,
-      error: null,
+      error: 'foo',
       events: [action.event, ...state.events]
     });
 
@@ -33,7 +34,6 @@ export default function pulses(state = initialState, action) {
     });
 
   case DELETE_EVENT_SUCCESS:
-    console.log('deleted', action.event);
     return Object.assign({}, state,{
       isWorking: false,
       error: null,
@@ -53,7 +53,7 @@ export default function pulses(state = initialState, action) {
       error: null,
       events: state.events.map(event =>
         event.id === action.event.id ?
-          { id: event.id , text: action.event.text, value: action.event.value } :
+          action.event :
           event
       )
     });

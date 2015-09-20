@@ -5,6 +5,22 @@ function connect() {
   return r.connect(config);
 }
 
+export function liveUpdates(io) {
+  console.log('Setting up listener...');
+  connect()
+  .then(conn => {
+    r
+    .table('pulses')
+    .changes().run(conn, (err, cursor) => {
+      console.log('Listening for changes...');
+      cursor.each((err, change) => {
+        console.log('Change detected', change);
+        io.emit('event-change', change);
+      });
+    });
+  });
+}
+
 export function getEvents() {
   return connect()
   .then(conn => {
@@ -18,6 +34,7 @@ export function getEvents() {
 export function addEvent(event) {
   return connect()
   .then(conn => {
+    event.created = new Date();
     return r
     .table('pulses')
     .insert(event).run(conn)
@@ -28,6 +45,7 @@ export function addEvent(event) {
 }
 
 export function editEvent(id, event) {
+  event.updated = new Date();
   return connect()
   .then(conn => {
     return r

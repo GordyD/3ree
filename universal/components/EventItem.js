@@ -1,16 +1,13 @@
 import React, {PropTypes, Component} from 'react';
+import moment from 'moment';
 import EventInput from './EventInput';
-
-const OUTCOMES = {
-  '-1': 'Negative',
-  '0':  'Neutral',
-  '1':  'Positive'
-};
 
 export default class EventItem extends Component {
   static propTypes = {
     id: PropTypes.any.isRequired,
+    row: PropTypes.number.isRequired,
     event: PropTypes.object.isRequired,
+    editable: PropTypes.bool,
     editEvent: PropTypes.func.isRequired,
     deleteEvent: PropTypes.func.isRequired
   };
@@ -23,7 +20,9 @@ export default class EventItem extends Component {
   }
 
   handleClick() {
-    this.setState({ editing: true });
+    if (this.props.editable) {
+      this.setState({ editing: true });
+    }
   }
 
   handleSave(event) {
@@ -36,26 +35,34 @@ export default class EventItem extends Component {
   }
 
   render() {
-    const { id, event, editEvent, deleteEvent } = this.props;
+    const { row, id, event, editEvent, deleteEvent } = this.props;
 
-    let element, className = (id % 2 === 0) ? 'even' : 'odd';
+    let element, className = (row % 2 === 0) ? 'even' : 'odd';
+    let modified = (event.updated) ? event.updated : event.created;
+
     if (this.state.editing) {
       element = (
         <EventInput text={event.text} 
-                    value={event.value} 
+                    value={event.value}
+                    userId={event.userId} 
                     editing={this.state.editing}
                     valueLabel='Rating'
                     onSubmit={ (event) => this.handleSave(Object.assign({}, event, { id: id })) } />
       );
     } else {
-      let outcome = OUTCOMES[event.value];
+      let del = (this.props.editable) ? 
+        <button className='destroy pure-button' onClick={ () => deleteEvent(event) } /> :
+        null;
       element = (
-        <div className='event-item'>
-          <label onClick={::this.handleClick}>
+        <div className='Pulse-eventItem'>
+          <p className='rowNumber'>{row+1}.</p>
+          <p className='title' onClick={::this.handleClick}>
             {event.text}
-            <span className='outcome'>{outcome}</span>
-          </label>
-          <button className='destroy pure-button' onClick={ () => deleteEvent(event) } />
+            
+          </p>
+          {del}
+          <p className='created'>{moment(modified).fromNow()}</p>
+          <p className='outcome'>{event.value}</p>
         </div>
       );
     }

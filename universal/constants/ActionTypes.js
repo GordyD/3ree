@@ -13,3 +13,11 @@ export const DELETE_EVENT_FAILURE = 'DELETE_EVENT_FAILURE';
 export const EDIT_EVENT_REQUEST = 'EDIT_EVENT_REQUEST';
 export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
 export const EDIT_EVENT_FAILURE = 'EDIT_EVENT_FAILURE';
+
+export const VALUE_CLASSES = {
+  20: 'very-low',
+  40: 'low',
+  60: 'mid',
+  80: 'high',
+  100: 'very-high'
+};

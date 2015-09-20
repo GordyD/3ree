@@ -5,7 +5,7 @@ const serverUrl = 'http://localhost:3000';
 const eventsUrl = serverUrl + '/api/0/events';
 
 export function loadEvents(event) {
-  return function(dispatch) {
+  return dispatch => {
     dispatch(LoadEventsRequest(event));
 
     return request
@@ -43,7 +43,7 @@ export function loadEventsFailure(error) {
 }
 
 export function addEvent(event) {
-  return function(dispatch) {
+  return dispatch => {
     dispatch(addEventRequest(event));
 
     return request
@@ -82,7 +82,7 @@ export function addEventFailure(error, event) {
 }
 
 export function deleteEvent(event) {
-  return function(dispatch) {
+  return dispatch => {
     dispatch(deleteEventRequest(event));
 
     return request
@@ -121,7 +121,7 @@ export function deleteEventFailure(error, event) {
 }
 
 export function editEvent(event) {
-  return function(dispatch) {
+  return dispatch => {
     dispatch(editEventRequest(event));
 
     return request
