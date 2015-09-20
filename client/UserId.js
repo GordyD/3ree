@@ -16,7 +16,7 @@ export function setUserId() {
 
 export function getOrSetUserId() {
   if (!hasLocalStorage()) {
-    return 'legacyUser';
+    return 'baseUser';
   } else {
     let userId = getUserId();
     return (userId) ? userId : setUserId();

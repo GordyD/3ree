@@ -4,6 +4,13 @@ import request from 'superagent';
 const serverUrl = 'http://localhost:3000';
 const eventsUrl = serverUrl + '/api/0/events';
 
+export function setUserId(userId) {
+  return {
+    type: types.SET_USER_ID,
+    userId
+  }
+}
+
 export function loadEvents(event) {
   return dispatch => {
     dispatch(LoadEventsRequest(event));

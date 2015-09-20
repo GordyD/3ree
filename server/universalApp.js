@@ -11,7 +11,7 @@ export function handleRender(req, res) {
   eventService.getEvents()
   .then(initialEvents => {
     // Create a new Redux store instance
-    const store = createStore(rootReducer, {events: initialEvents});
+    const store = createStore(rootReducer, {events: initialEvents, userId: 'baseUser'});
 
     // Render the component to a string
     const html = React.renderToString(

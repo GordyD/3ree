@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.babel.js",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "build-prod": "webpack"
   },
   "keywords": [
     "react",

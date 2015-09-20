@@ -4,7 +4,7 @@ import { Connector } from 'react-redux';
 import Header from '../components/Header';
 import EventList from '../components/EventList';
 import EventTicker from '../components/EventTicker';
-import AsyncBar from '../components/AsynCBar';
+import AsyncBar from '../components/AsyncBar';
 import EventInput from '../components/EventInput';
 
 import * as PulseActions from '../actions/PulseActions';

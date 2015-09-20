@@ -14,8 +14,6 @@ const port = 3000;
 
 var io = SocketIO(httpServer);
 
-io.on('connection', (socket) => console.log('connected'));
-
 app.set('views', path.join(__dirname, 'server', 'views'));
 app.set('view engine', 'jade');
 
