@@ -1,16 +1,15 @@
 ## 3ree
 
-An example universal JS application written with *Re*act + *Re*dux + *Re*thinkDB + *E*xpress.
+An example universal JS application written with *Re*act + *Re*dux + *Re*thinkDB + *E*xpress. A stack for building apps, front and back end, with just Javascript.
 
-This project was initially conceived to see experiment with using these technologies in conjunction with one-another. It is a work in progress.
+This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this repo.
+
+It is still work in progress.
 
 Main Features:
  - Universal (Isomorphic) Javascript
  - Asyncronous example
  - Use of RethinkDB Changefeeds for Realtime
-
-To Do:
- - Add in React Router 
 
 Tech used:
  - React - view layer
@@ -21,4 +20,7 @@ Tech used:
  - Webpack - module bundling + build for client
  - Jade - view templates
  - Superagent - universal http requests
+
+To Do:
+ - Add in React Router 
 
