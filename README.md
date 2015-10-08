@@ -13,23 +13,11 @@ This project is useful for:
 
 * N.B It is still a work in progress and incorporation with React Router is coming shortly!*
 
-#### Main Features
+### Main Features
+
  - Universal (Isomorphic) Javascript
  - Asyncronous example
  - Use of RethinkDB Changefeeds for Realtime
-
-#### Tech used:
- - React - view layer
- - Redux - state management
- - RethinkDB - persistance layer
- - Express - server framework
- - Socket.io - for realtime communication between clients and server
- - Webpack - module bundling + build for client
- - Jade - view templates
- - Superagent - universal http requests
-
-#### To Do
- - Add in React Router 
 
 ### Setup
 
@@ -41,6 +29,21 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `node dbSetup.babel.js` to set up DB
  - Run `npm start`
  - Go to http://localhost:3000
+
+### Tech Used
+
+ - React - view layer
+ - Redux - state management
+ - RethinkDB - persistance layer
+ - Express - server framework
+ - Socket.io - for realtime communication between clients and server
+ - Webpack - module bundling + build for client
+ - Jade - view templates
+ - Superagent - universal http requests
+
+### To Do
+
+ - Add in React Router 
 
 
 
