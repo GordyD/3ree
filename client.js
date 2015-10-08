@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { Provider } from 'react-redux';
-import PulseApp from './universal/containers/PulseApp';
+import PulseAppContainer from './universal/containers/PulseAppContainer';
 import pulseApp from './universal/reducers';
 import * as actions from './universal/actions/PulseActions';
 
@@ -31,7 +31,7 @@ const store = createStoreWithMiddleware(pulseApp, initialState);
 
 React.render(
   <Provider store={store}>
-    <PulseApp />
+    <PulseAppContainer />
   </Provider>,
   document.getElementById('app')
 );
