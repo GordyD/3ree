@@ -6,19 +6,32 @@ This project was initially conceived to experiment with using these technologies
 
 This project is useful for:
  - seeing how to build a Universal Javascript application
- - understand how to handle asyncronousity in Redux action creators
- - how to work with Socket.io with Redux
- - for building your own Redux powered application
- - as a starting point for your own 3REE stack app!
+ - understanding how to handle asyncronousity in Redux action creators
+ - seeing how you can use Socket.io with Redux
+ - building your own Redux powered application
+ - forking so that you can build your own 3REE stack app!
 
-It is still work in progress and incorporation with React Router is coming shortly.
+* N.B It is still a work in progress and incorporation with React Router is coming shortly!*
 
-Main Features:
+### Main Features
+
  - Universal (Isomorphic) Javascript
  - Asyncronous example
  - Use of RethinkDB Changefeeds for Realtime
 
-Tech used:
+### Setup
+
+You will need to install [RethinkDB](http://www.rethinkdb.com). You can find instruction on how to do so [here](http://rethinkdb.com/docs/install/).
+
+ - Clone the repo `git clone git@github.com:GordyD/3ree.git`
+ - Run `npm install`
+ - Ensure contents of `server/api/config.json` is correct for your environment.
+ - Run `node dbSetup.babel.js` to set up DB
+ - Run `npm start`
+ - Go to http://localhost:3000
+
+### Tech Used
+
  - React - view layer
  - Redux - state management
  - RethinkDB - persistance layer
@@ -28,6 +41,10 @@ Tech used:
  - Jade - view templates
  - Superagent - universal http requests
 
-To Do:
+### To Do
+
  - Add in React Router 
+
+
+
 
