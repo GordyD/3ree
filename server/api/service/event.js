@@ -1,5 +1,6 @@
 import r from 'rethinkdb';
 import config from '../config.json';
+import xss from 'xss';
 
 function connect() {
   return r.connect(config);
@@ -35,6 +36,7 @@ export function addEvent(event) {
   return connect()
   .then(conn => {
     event.created = new Date();
+    event.text = xss(event.text);
     return r
     .table('pulses')
     .insert(event).run(conn)
@@ -46,6 +48,7 @@ export function addEvent(event) {
 
 export function editEvent(id, event) {
   event.updated = new Date();
+  event.text = xss(event.text);
   return connect()
   .then(conn => {
     return r

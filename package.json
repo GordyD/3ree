@@ -33,7 +33,8 @@
     "serve-static": "1.10.0",
     "socket.io": "1.3.6",
     "socket.io-client": "1.3.6",
-    "superagent": "1.3.0"
+    "superagent": "1.3.0",
+    "xss": "^0.2.7"
   },
   "devDependencies": {
     "babel": "^5.5.8",
