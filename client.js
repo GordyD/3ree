@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import React from 'react';
 import { getOrSetUserId } from './client/UserId';
 import { setupRealtime } from './client/Realtime';
@@ -29,7 +30,7 @@ const createStoreWithMiddleware = applyMiddleware(
 // Create Redux store with initial state
 const store = createStoreWithMiddleware(pulseApp, initialState);
 
-React.render(
+ReactDOM.render(
   <Provider store={store}>
     <PulseAppContainer />
   </Provider>,
