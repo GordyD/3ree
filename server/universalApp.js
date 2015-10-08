@@ -1,11 +1,12 @@
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import * as eventService from './api/service/event';
 
 import rootReducer from '../universal/reducers';
-import PulseApp from '../universal/containers/PulseApp';
+import PulseAppContainer from '../universal/containers/PulseAppContainer';
 
 export function handleRender(req, res) {
   eventService.getEvents()
@@ -14,9 +15,9 @@ export function handleRender(req, res) {
     const store = createStore(rootReducer, {events: initialEvents, userId: 'baseUser'});
 
     // Render the component to a string
-    const html = React.renderToString(
+    const html = ReactDOMServer.renderToString(
       <Provider store={store}>
-        {() => <PulseApp />}
+        <PulseAppContainer />
       </Provider>
     );
 

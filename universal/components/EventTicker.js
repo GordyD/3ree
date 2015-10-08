@@ -29,7 +29,7 @@ export default class EventTicker extends Component {
         <div className='Pulse-eventList-list'>
           <ul>
             {otherEvents.slice(0,this.props.length).map((event, key) =>
-              <EventItem key={key} row={key} id={event.id} event={event} editable={editable} {...actions} />
+              <EventItem key={key} row={key} id={event.id} event={event} editable={editable} />
             )}
           </ul>
         </div>

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import PulseApp from './universal/containers/PulseApp';
 import pulseApp from './universal/reducers';
 import * as actions from './universal/actions/PulseActions';
+
 import './style/pure.css';
 import './style/main.css';
 import './style/spinner.css';
@@ -30,7 +31,7 @@ const store = createStoreWithMiddleware(pulseApp, initialState);
 
 React.render(
   <Provider store={store}>
-    {() => <PulseApp />}
+    <PulseApp />
   </Provider>,
   document.getElementById('app')
 );
