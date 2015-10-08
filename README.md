@@ -26,7 +26,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Clone the repo `git clone git@github.com:GordyD/3ree.git`
  - Run `npm install`
  - Ensure contents of `server/api/config.json` is correct for your environment.
- - Run `node dbSetup.babel.js` to set up DB
+ - Run `npm run db-setup` to set up DB
  - Run `npm start`
  - Go to http://localhost:3000
 
