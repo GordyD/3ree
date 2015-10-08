@@ -4,7 +4,6 @@ import { VALUE_CLASSES } from '../constants/ActionTypes.js';
 export default class EventInput extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-
     userId: PropTypes.string.isRequired,
     textLabel: PropTypes.string,
     valueLabel: PropTypes.string,

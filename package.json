@@ -1,7 +1,7 @@
 {
   "name": "pulse",
-  "version": "0.0.1",
-  "description": "Pulse App",
+  "version": "0.0.2",
+  "description": "An example application using the 3REE stack!",
   "main": "server.js",
   "scripts": {
     "start": "node server.babel.js",
@@ -23,6 +23,7 @@
     "moment": "^2.10.6",
     "node-uuid": "^1.4.3",
     "react": "0.14.0",
+    "react-dom": "0.14.0",
     "react-redux": "3.1.0",
     "redux": "3.0.2",
     "redux-logger": "2.0.3",

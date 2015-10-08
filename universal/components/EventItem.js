@@ -8,8 +8,8 @@ export default class EventItem extends Component {
     row: PropTypes.number.isRequired,
     event: PropTypes.object.isRequired,
     editable: PropTypes.bool,
-    editEvent: PropTypes.func.isRequired,
-    deleteEvent: PropTypes.func.isRequired
+    editEvent: PropTypes.func,
+    deleteEvent: PropTypes.func
   };
 
   constructor(props, context){

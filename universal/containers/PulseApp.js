@@ -10,25 +10,31 @@ import EventInput from '../components/EventInput';
 import * as PulseActions from '../actions/PulseActions';
 
 export default class PulseApp extends Component {
-  render() {
-    return (
-      <Connector select={state => ({ events : state.events, userId: state.userId, isWorking: state.isWorking, error: state.error })}>
-        {this.renderChild}
-      </Connector>
-    );
-  }
+  static propTypes = {
+    addEvent: React.PropTypes.func.isRequired,
+    editEvent: React.PropTypes.func.isRequired,
+    deleteEvent: React.PropTypes.func.isRequired,
+    userId: React.PropTypes.string,
+    events: React.PropTypes.array,
+    isWorking: React.PropTypes.bool,
+    error: React.PropTypes.any,
+  };
 
-  renderChild({ all, events, userId, isWorking, error, dispatch }) {
-    const actions = bindActionCreators(PulseActions, dispatch);
+  render() {
+    let actions = { 
+      editEvent: this.props.editEvent, 
+      deleteEvent: this.props.deleteEvent
+    };
+
     return (
       <div className="Pulse-Container">
         <Header/>
         <section className='Pulse-addEventForm'>
-          <EventInput onSubmit={actions.addEvent} userId={userId} textLabel='What happened?' valueLabel='Rating' />
+          <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
-        <AsyncBar isWorking={isWorking} error={error} />
-        <EventList events={events} userId={userId} actions={actions} />
-        <EventTicker events={events} userId={userId} length={3} actions={actions} />
+        <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
+        <EventList events={this.props.events} userId={this.props.userId} actions={actions} />
+        <EventTicker events={this.props.events} userId={this.props.userId} length={3} />
       </div>
     );
   }
