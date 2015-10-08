@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.babel.js",
+    "db-setup": "node dbSetup.babel.js",
     "build": "webpack --watch",
     "build-prod": "webpack"
   },
