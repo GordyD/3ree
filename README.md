@@ -27,6 +27,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `npm install`
  - Ensure contents of `server/api/config.json` is correct for your environment.
  - Run `npm run db-setup` to set up DB
+ - Run `npm run build-prod` to build application files
  - Run `npm start`
  - Go to http://localhost:3000
 
