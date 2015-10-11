@@ -1,5 +1,5 @@
 {
   "host": "localhost",
-  "post": 28015,
+  "port": 28015,
   "db": "pulse"
 }
