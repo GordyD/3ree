@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import Header from '../components/Header';
 import EventList from '../components/EventList';
 import EventTicker from '../components/EventTicker';
@@ -7,7 +10,7 @@ import EventInput from '../components/EventInput';
 
 import * as PulseActions from '../actions/PulseActions';
 
-export default class PulseApp extends Component {
+class PulseApp extends Component {
   static propTypes = {
     addEvent: React.PropTypes.func.isRequired,
     editEvent: React.PropTypes.func.isRequired,
@@ -37,3 +40,16 @@ export default class PulseApp extends Component {
     );
   }
 }
+
+/**
+ * Expose "Smart" Component that is connect-ed to Redux
+ */
+export default connect(
+  state => ({
+    events: state.pulseApp.events,
+    userId: state.pulseApp.userId,
+    isWorking: state.pulseApp.isWorking,
+    error: state.pulseApp.error
+  }), 
+  dispatch => bindActionCreators(PulseActions, dispatch)
+)(PulseApp);

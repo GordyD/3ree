@@ -8,7 +8,6 @@ import * as eventService from './api/service/event';
 
 import pulseApp from '../universal/reducers';
 import routes from '../universal/routes'
-import PulseAppContainer from '../universal/containers/PulseAppContainer';
 
 import { Route } from 'react-router';
 import createHistory from 'history/lib/createMemoryHistory';

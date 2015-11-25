@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import PulseAppContainer from './containers/PulseAppContainer';
+import PulseApp from './containers/PulseApp';
 
 export default (
-  <Route path='/' component={PulseAppContainer} />
+  <Route path='/' component={PulseApp} />
 );
