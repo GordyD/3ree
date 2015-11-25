@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { Connector } from 'react-redux';
 import Header from '../components/Header';
 import EventList from '../components/EventList';
 import EventTicker from '../components/EventTicker';

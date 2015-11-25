@@ -6,7 +6,7 @@ export function setupRealtime(store, actions) {
   io.on('event-change', (change) => {
     let state = store.getState();
     if (!change.old_val) {
-      if (change.new_val.userId !== state.userId) {
+      if (change.new_val.userId !== state.pulseApp.userId) {
         store.dispatch(actions.addEventSuccess(change.new_val));
       }
     }
