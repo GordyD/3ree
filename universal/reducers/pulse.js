@@ -26,10 +26,14 @@ export default function pulses(state = initialState, action) {
       });
 
     case ADD_EVENT_SUCCESS:
+      let events = state.events;
+      if (events.findIndex(evt => evt.id === action.event.id) === -1) {
+        events = [action.event, ...state.events];
+      }
       return Object.assign({}, state, {
         isWorking: false,
-        error: 'foo',
-        events: [action.event, ...state.events]
+        error: null,
+        events: events
       });
 
     case DELETE_EVENT_REQUEST:
