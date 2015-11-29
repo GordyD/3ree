@@ -27,17 +27,17 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 /**
- * Universal Application endpoint
- */
-app.get('/', uni.handleRender);
-
-/**
  * API Endpoints
  */
 app.get('/api/0/events', api.getEvents);
 app.post('/api/0/events', api.addEvent);
 app.post('/api/0/events/:id', api.editEvent);
 app.delete('/api/0/events/:id', api.deleteEvent);
+
+/**
+ * Universal Application endpoint
+ */
+app.get('*', uni.handleRender);
 
 eventService.liveUpdates(io);
 

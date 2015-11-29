@@ -23,6 +23,24 @@ h1, h2, h3, p {
   text-align: center;
 }
 
+.Pulse-links {
+  padding: 10px;
+  text-align: center;
+}
+
+.Pulse-links a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.Pulse-links a:hover {
+  color: #cccccc;
+} 
+
+.Pulse-links a.active {
+  text-decoration: underline;
+} 
 
 .Pulse-addEventForm, .Pulse-eventList, .Pulse-async {
   width: 600px;

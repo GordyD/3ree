@@ -9,9 +9,11 @@ import * as eventService from './api/service/event';
 import pulseApp from '../universal/reducers';
 import routes from '../universal/routes'
 
-import { Route } from 'react-router';
+import { routerStateReducer, ReduxRouter } from 'redux-router';
+import { reduxReactRouter, match } from 'redux-router/server';
+
 import createHistory from 'history/lib/createMemoryHistory';
-import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
+
 
 export function handleRender(req, res) {
   eventService.getEvents()
@@ -29,17 +31,32 @@ export function handleRender(req, res) {
       applyMiddleware(thunkMiddleware),
       reduxReactRouter({routes, createHistory})
     )(createStore)(reducers, initialState);
-    
-    // Render the component to a string
-    const html = ReactDOMServer.renderToString(
-      <div>
-        <Provider store={store}>
-          <ReduxRouter />
-        </Provider>
-      </div>
-    );
 
-    // Send the rendered page back to the client
-    res.render('index', { html: html, initialState: JSON.stringify(store.getState()) });
+    // Wire up routing based upon routes
+    store.dispatch(match(req.url, (error, redirectLocation) => {
+      if (error)  {
+        console.log('Error', error);
+        res.status(400);
+        res.send(error);
+        return;
+      }
+
+      if (redirectLocation) {
+        res.redirect(redirectLocation);
+        return;
+      }
+
+      // Render the component to a string
+      const html = ReactDOMServer.renderToString(
+        <div>
+          <Provider store={store}>
+            <ReduxRouter />
+          </Provider>
+        </div>
+      );
+
+      // Send the rendered page back to the client with the initial state
+      res.render('index', { html: html, initialState: JSON.stringify(store.getState()) });
+    }));
   });
 }

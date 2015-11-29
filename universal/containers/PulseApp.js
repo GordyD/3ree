@@ -34,8 +34,8 @@ class PulseApp extends Component {
           <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
         <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
-        <EventList events={this.props.events} userId={this.props.userId} actions={actions} />
-        <EventTicker events={this.props.events} userId={this.props.userId} length={3} />
+        {this.props.myEvents}
+        {this.props.otherEvents}
       </div>
     );
   }
