@@ -34,6 +34,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
 ### Tech Used
 
  - React - view layer
+ - React Router - universal routing
  - Redux - state management
  - RethinkDB - persistance layer
  - Express - server framework
@@ -41,10 +42,6 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Webpack - module bundling + build for client
  - Jade - view templates
  - Superagent - universal http requests
-
-### To Do
-
- - Add in React Router 
 
 
 
