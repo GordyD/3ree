@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
-    './client'
+    './client/app'
   ],
   output: {
     path: path.join(__dirname, 'dist'),

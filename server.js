@@ -6,7 +6,7 @@ import SocketIO from 'socket.io';
 
 import * as api from './server/api/http';
 import * as eventService from './server/api/service/event';
-import * as uni from './server/universalApp.js'
+import * as uni from './server/app.js'
 
 const app = Express();
 const httpServer = http.Server(app);
