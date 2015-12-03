@@ -4,7 +4,7 @@
   "description": "An example application using the 3REE stack!",
   "main": "server.js",
   "scripts": {
-    "start": "node server.babel.js",
+    "start": "node server.babel.js & node server.webpack.js",
     "db-setup": "node dbSetup.babel.js",
     "build": "webpack --watch",
     "build-prod": "webpack"
