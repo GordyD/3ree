@@ -1,9 +1,9 @@
 import r from 'rethinkdb';
-import config from '../config.json';
+import config from '../config';
 import xss from 'xss';
 
 function connect() {
-  return r.connect(config);
+  return r.connect(config.rethinkdb);
 }
 
 export function liveUpdates(io) {

@@ -1,8 +1,9 @@
 import * as types from '../constants/ActionTypes';
+import config from '../../server/api/config';
 import request from 'superagent';
 
-const serverUrl = 'http://localhost:3000';
-const eventsUrl = serverUrl + '/api/0/events';
+const serverUrl = `http://${config.express.host}:${config.express.port}`;
+const eventsUrl = `${serverUrl}/api/0/events`;
 
 export function setUserId(userId) {
   return {

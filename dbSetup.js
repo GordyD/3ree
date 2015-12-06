@@ -1,10 +1,10 @@
 import r from 'rethinkdb';
-import config from './server/api/config.json';
+import config from './server/api/config';
 
-let DATABASE = config.db || 'pulse';
+let DATABASE = config.rethinkdb.db || 'pulse';
 let TABLES = ['pulses']; 
 
-r.connect(config)
+r.connect(config.rethinkdb)
 .then(conn => {
   console.log(' [-] Database Setup');
   return createDbIfNotExists(conn)
