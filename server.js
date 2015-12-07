@@ -34,6 +34,8 @@ app.post('/api/0/events', api.addEvent);
 app.post('/api/0/events/:id', api.editEvent);
 app.delete('/api/0/events/:id', api.deleteEvent);
 
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, 'images', 'favicon.ico')));
+
 /**
  * Universal Application endpoint
  */

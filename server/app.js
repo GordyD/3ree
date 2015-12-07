@@ -33,7 +33,7 @@ export function handleRender(req, res) {
     )(createStore)(reducers, initialState);
 
     // Wire up routing based upon routes
-    store.dispatch(match(req.url, (error, redirectLocation) => {
+    store.dispatch(match(req.url, (error, redirectLocation, renderProps) => {
       if (error)  {
         console.log('Error', error);
         res.status(400);
@@ -46,11 +46,13 @@ export function handleRender(req, res) {
         return;
       }
 
+
+
       // Render the component to a string
       const html = ReactDOMServer.renderToString(
         <div>
           <Provider store={store}>
-            <ReduxRouter />
+            <ReduxRouter {...renderProps} />
           </Provider>
         </div>
       );
