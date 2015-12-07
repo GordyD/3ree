@@ -19,6 +19,7 @@
     "bluebird": "2.9.34",
     "body-parser": "1.13.3",
     "classnames": "2.1.2",
+    "config": "^1.17.1",
     "express": "4.13.3",
     "history": "1.13.0",
     "jade": "1.11.0",

@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import Express from 'express';
 import http from 'http';
 import SocketIO from 'socket.io';
-import config from './server/api/config';
+import config from 'config';
 
 import * as api from './server/api/http';
 import * as eventService from './server/api/service/event';
@@ -11,7 +11,7 @@ import * as uni from './server/app.js'
 
 const app = Express();
 const httpServer = http.Server(app);
-const port = config.express.port || 3000;
+const port = config.get('express.port') || 3000;
 
 var io = SocketIO(httpServer);
 
