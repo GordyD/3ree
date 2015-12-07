@@ -15,7 +15,7 @@ const port = 3000;
 var io = SocketIO(httpServer);
 
 app.set('views', path.join(__dirname, 'server', 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs')
 
 /**
  * Server middleware

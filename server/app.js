@@ -50,7 +50,7 @@ export function handleRender(req, res) {
       const html = ReactDOMServer.renderToString(
         <div>
           <Provider store={store}>
-            <ReduxRouter />
+            <ReduxRouter />  
           </Provider>
         </div>
       );
