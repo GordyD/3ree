@@ -4,12 +4,14 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
+    'webpack-dev-server/client?http://localhost:3001',
+    'webpack/hot/only-dev-server',
     './client/app'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: 'http://localhost:3001/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
