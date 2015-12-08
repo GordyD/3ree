@@ -2,9 +2,7 @@
 
 An example universal JS application written with the 3REE stack, *Re*act + *Re*dux + *Re*thinkDB + *E*xpress. A stack for building apps, front and back end, with just Javascript.
 
-This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this codebase. You can see the demo application [here](http://3ree-demo.workshape.io/).
-
-![Screenshot](http://i.imgur.com/RiFteKV.png)
+This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this codebase.
 
 This project is useful for:
  - seeing how to build a Universal Javascript application
