@@ -40,7 +40,6 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Express - server framework
  - Socket.io - for realtime communication between clients and server
  - Webpack - module bundling + build for client
- - Jade - view templates
  - Superagent - universal http requests
 
 

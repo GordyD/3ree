@@ -20,7 +20,6 @@ import routes from '../universal/routes'
 import pulseApp from '../universal/reducers';
 import * as actions from '../universal/actions/PulseActions';
 
-
 import '../style/pure.css';
 import '../style/main.css';
 import '../style/spinner.css';

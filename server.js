@@ -16,7 +16,7 @@ const port = config.get('express.port') || 3000;
 var io = SocketIO(httpServer);
 
 app.set('views', path.join(__dirname, 'server', 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs')
 
 /**
  * Server middleware
@@ -34,6 +34,8 @@ app.get('/api/0/events', api.getEvents);
 app.post('/api/0/events', api.addEvent);
 app.post('/api/0/events/:id', api.editEvent);
 app.delete('/api/0/events/:id', api.deleteEvent);
+
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, 'images', 'favicon.ico')));
 
 /**
  * Universal Application endpoint
