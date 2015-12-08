@@ -11,8 +11,6 @@ This project is useful for:
  - building your own Redux powered application
  - forking so that you can build your own 3REE stack app!
 
-* N.B It is still a work in progress and incorporation with React Router is coming shortly!*
-
 ### Main Features
 
  - Universal (Isomorphic) Javascript
@@ -29,7 +27,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `npm run db-setup` to set up DB
  - Run `npm run build` to build application files and watch for changes
  - Run `npm start`
- - Go to http://localhost:3000
+ - Go to http://localhost:3000 in two seperate tabs - see changes propagate in real time.
 
 ### Tech Used
 
