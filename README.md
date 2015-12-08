@@ -4,6 +4,8 @@ An example universal JS application written with the 3REE stack, *Re*act + *Re*d
 
 This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this codebase.
 
+![Screenshot](http://i.imgur.com/RiFteKV.png)
+
 This project is useful for:
  - seeing how to build a Universal Javascript application
  - understanding how to handle asyncronousity in Redux action creators
