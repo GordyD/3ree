@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import request from 'superagent';
 
 const serverUrl = 'http://localhost:3000';
-const eventsUrl = serverUrl + '/api/0/events';
+const eventsUrl = `${serverUrl}/api/0/events`;
 
 export function setUserId(userId) {
   return {
