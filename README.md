@@ -25,7 +25,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
 
  - Clone the repo `git clone git@github.com:GordyD/3ree.git`
  - Run `npm install`
- - Ensure contents of `server/api/config.json` is correct for your environment.
+ - If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
  - Run `npm run db-setup` to set up DB
  - Run `npm run build` to build application files and watch for changes
  - Run `npm start`
