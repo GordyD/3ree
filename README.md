@@ -2,7 +2,9 @@
 
 An example universal JS application written with the 3REE stack, *Re*act + *Re*dux + *Re*thinkDB + *E*xpress. A stack for building apps, front and back end, with just Javascript.
 
-This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this codebase. You can see the demo application [here](http://3ree-demo.workshape.io/).
+This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this codebase.
+
+![Screenshot](http://i.imgur.com/RiFteKV.png)
 
 This project is useful for:
  - seeing how to build a Universal Javascript application
@@ -10,8 +12,6 @@ This project is useful for:
  - seeing how you can use Socket.io with Redux
  - building your own Redux powered application
  - forking so that you can build your own 3REE stack app!
-
-* N.B It is still a work in progress and incorporation with React Router is coming shortly!*
 
 ### Main Features
 
@@ -29,7 +29,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `npm run db-setup` to set up DB
  - Run `npm run build` to build application files and watch for changes
  - Run `npm start`
- - Go to http://localhost:3000
+ - Go to http://localhost:3000 in two seperate tabs - see changes propagate in real time.
 
 ### Tech Used
 
