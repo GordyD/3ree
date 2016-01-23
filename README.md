@@ -29,7 +29,7 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `npm run db-setup` to set up DB
  - Run `npm run build` to build application files and watch for changes
  - Run `npm start`
- - Go to http://localhost:3000 in two seperate tabs - see changes propagate in real time.
+ - Go to http://localhost:3001 in two seperate tabs - see changes propagate in real time (Hot Module Replacement works too)
 
 ### Tech Used
 

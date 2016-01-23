@@ -27,7 +27,7 @@ export function getEvents() {
   .then(conn => {
     return r
     .table('pulses')
-    .orderBy('id').run(conn)
+    .orderBy(r.desc('created')).run(conn)
     .then(cursor => cursor.toArray());
   });
 }

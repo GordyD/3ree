@@ -8,13 +8,14 @@ var devServerPort = 3001;
 
 new WebpackDevServer(webpack(config), {
   contentBase: 'dist/',
-  publicPath: config.output.publicPath,
-  hot: true,
+  headers: { 'Access-Control-Allow-Origin': '*' },
   historyApiFallback: true,
+  hot: true,
+  noInfo: true,
+  publicPath: config.output.publicPath,
   proxy: {
     '*': 'http://' + host + ':' + appPort
-  },
-  noInfo: true,
+  }
 }).listen(devServerPort, host, function (err) {
   if (err) {
     console.log(err);

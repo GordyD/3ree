@@ -11,17 +11,15 @@ export function setUserId(userId) {
   }
 }
 
-export function loadEvents(event) {
+export function loadEvents() {
   return dispatch => {
-    dispatch(LoadEventsRequest(event));
-
+    dispatch(loadEventsRequest());
     return request
       .get(eventsUrl)
-      .send(event)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
-          dispatch(loadEventsFailure(err, event));
+          dispatch(loadEventsFailure(err));
         } else {
           dispatch(loadEventsSuccess(res.body));
         }
@@ -50,6 +48,7 @@ export function loadEventsFailure(error) {
 }
 
 export function addEvent(event) {
+  console.log('Add event', event);
   return dispatch => {
     dispatch(addEventRequest(event));
 

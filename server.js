@@ -1,19 +1,19 @@
 import path from 'path';
 import bodyParser from 'body-parser';
-import Express from 'express';
+import express from 'express';
 import http from 'http';
-import SocketIO from 'socket.io';
+import socketIO from 'socket.io';
 import config from 'config';
 
 import * as api from './server/api/http';
 import * as eventService from './server/api/service/event';
 import * as uni from './server/app.js'
 
-const app = Express();
-const httpServer = http.Server(app);
+const app = express();
+const httpServer = http.createServer(app);
 const port = config.get('express.port') || 3000;
 
-var io = SocketIO(httpServer);
+var io = socketIO(httpServer);
 
 app.set('views', path.join(__dirname, 'server', 'views'));
 app.set('view engine', 'ejs')
