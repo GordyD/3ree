@@ -23,7 +23,7 @@ describe('Reducers', () => {
       let userId = 234;
       let action = actions.setUserId(userId);
 
-      expect(initialStateForTest.userId).to.be.null
+      expect(initialStateForTest.userId).to.be.null;
 
       let state = reducer(initialStateForTest, action);
       expect(state.userId).to.equal(userId);
@@ -36,7 +36,7 @@ describe('Reducers', () => {
         let initialStateForTest = { isWorking: false };
         let action = actions.addEventRequest();
 
-        expect(initialStateForTest.isWorking).to.be.false
+        expect(initialStateForTest.isWorking).to.be.false;
 
         let state = reducer(initialStateForTest, action);
         expect(state.isWorking).to.be.true;
@@ -53,7 +53,7 @@ describe('Reducers', () => {
 
         let action = actions.addEventSuccess(event);
 
-        expect(initialStateForTest.isWorking).to.be.true
+        expect(initialStateForTest.isWorking).to.be.true;
         expect(initialStateForTest.events.length).to.equal(events.length);
 
 
@@ -73,8 +73,8 @@ describe('Reducers', () => {
 
         let action = actions.addEventFailure(error);
 
-        expect(initialStateForTest.isWorking).to.be.true
-        expect(initialStateForTest.error).to.be.null
+        expect(initialStateForTest.isWorking).to.be.true;
+        expect(initialStateForTest.error).to.be.null;
         expect(initialStateForTest.events.length).to.equal(events.length);
 
 

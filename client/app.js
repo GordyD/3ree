@@ -16,7 +16,7 @@ import { createHistory } from 'history';
 import { getOrSetUserId } from './UserId';
 import { setupRealtime } from './Realtime';
 
-import routes from '../universal/routes'
+import routes from '../universal/routes';
 import pulseApp from '../universal/reducers';
 import * as actions from '../universal/actions/PulseActions';
 

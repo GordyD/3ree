@@ -8,7 +8,7 @@ export function setUserId(userId) {
   return {
     type: types.SET_USER_ID,
     userId
-  }
+  };
 }
 
 export function loadEvents() {
@@ -24,7 +24,7 @@ export function loadEvents() {
           dispatch(loadEventsSuccess(res.body));
         }
       });
-  }
+  };
 }
 
 export function loadEventsRequest() {
@@ -63,7 +63,7 @@ export function addEvent(event) {
           dispatch(addEventSuccess(res.body));
         }
       });
-  }
+  };
 }
 
 export function addEventRequest(event) {
@@ -101,7 +101,7 @@ export function deleteEvent(event) {
           dispatch(deleteEventSuccess(res.body));
         }
       });
-  }
+  };
 }
 
 export function deleteEventRequest(event) {
@@ -141,7 +141,7 @@ export function editEvent(event) {
           dispatch(editEventSuccess(res.body));
         }
       });
-  }
+  };
 }
 
 export function editEventRequest(event) {

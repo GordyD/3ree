@@ -7,7 +7,7 @@ import config from 'config';
 
 import * as api from './server/api/http';
 import * as eventService from './server/api/service/event';
-import * as uni from './server/app.js'
+import * as uni from './server/app.js';
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -16,7 +16,7 @@ const port = config.get('express.port') || 3000;
 var io = socketIO(httpServer);
 
 app.set('views', path.join(__dirname, 'server', 'views'));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 /**
  * Server middleware

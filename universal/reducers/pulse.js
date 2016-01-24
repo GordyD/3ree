@@ -18,7 +18,7 @@ export default function pulses(state = initialState, action) {
     case SET_USER_ID:
       return Object.assign({}, state, {
         userId: action.userId
-      })
+      });
     case ADD_EVENT_REQUEST:
       return Object.assign({}, state, {
         isWorking: true,

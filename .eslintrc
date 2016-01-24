@@ -21,6 +21,7 @@
   // To give you an idea how to override rule options:
   "rules": {
     "quotes": [2, "single"],
+    "semi": [2, "always"],
     "strict": [2, "never"],
     "eol-last": [0],
     "no-mixed-requires": [0],

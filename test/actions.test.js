@@ -15,7 +15,7 @@ import * as types from '../universal/constants/ActionTypes';
 
 describe('Actions', () => {
   afterEach(function() {
-    actions.__ResetDependency__('request')
+    actions.__ResetDependency__('request');
   });
 
   /**
