@@ -9,15 +9,14 @@ var expect = chai.expect;
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import nock from 'nock';
 
 import * as actions from '../universal/actions/PulseActions.js';
 import * as types from '../universal/constants/ActionTypes';
 
-describe('PulseActions', () => {
+describe('Actions', () => {
   afterEach(function() {
     actions.__ResetDependency__('request')
-  })
+  });
 
   /**
    * Example of writing a test on a syncronous action creator
@@ -39,32 +38,53 @@ describe('PulseActions', () => {
   /**
    * Example of writing a test on an asyncronous action creator
    */
-  // describe('loadEvents', () => {
-  //   const mockStore = configureStore([thunk]);
-  //   it('should run', (done) => {
-  //     let requestMock = {
-  //       get: () => {
-  //         set: () => {
-  //           end: (x) => {
-  //             x(null, {
-  //               body: [ { name: 'Awesome', value: 54 } ]
-  //             });
-  //           }
-  //         }
-  //       }
-  //     };
+  describe('loadEvents', () => {
+    const mockStore = configureStore([thunk]);
+    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_SUCCESS action when succesful', (done) => {
+      let requestMock = {
+        get: () => ({
+          set: () => ({
+            end: (x) => x(null, {
+              body: [ { name: 'Awesome', value: 54 } ]
+            })
+          })
+        })
+      };
 
-  //     actions.__Rewire__('request', requestMock);
+      actions.__Rewire__('request', requestMock);
 
-  //     let expectedActions = [
-  //       { type: 'LOAD_EVENTS_REQUEST' },
-  //       { type: 'LOAD_EVENTS_SUCCESS', events: [ { name: 'Awesome', value: 54 } ] }
-  //     ];
+      let expectedActions = [
+        { type: 'LOAD_EVENTS_REQUEST' },
+        { type: 'LOAD_EVENTS_SUCCESS', events: [ { name: 'Awesome', value: 54 } ] }
+      ];
       
-  //     let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
-  //     let store = mockStore(initialState, expectedActions, done);
+      let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
+      let store = mockStore(initialState, expectedActions, done);
 
-  //     store.dispatch(actions.loadEvents());
-  //   });
-  // });
+      store.dispatch(actions.loadEvents());
+    });
+
+    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_FAILURE action when unsuccessful', (done) => {
+      let error = 'An Error Occurred!';
+      let requestMock = {
+        get: () => ({
+          set: () => ({
+            end: (x) => x(error)
+          })
+        })
+      };
+
+      actions.__Rewire__('request', requestMock);
+
+      let expectedActions = [
+        { type: 'LOAD_EVENTS_REQUEST' },
+        { type: 'LOAD_EVENTS_FAILURE', error: error }
+      ];
+      
+      let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
+      let store = mockStore(initialState, expectedActions, done);
+
+      store.dispatch(actions.loadEvents());
+    });
+  });
 });
