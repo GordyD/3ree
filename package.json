@@ -4,11 +4,12 @@
   "description": "An example application using the 3REE stack!",
   "main": "server.js",
   "scripts": {
-    "start": "node server.babel.js & node server.webpack.js",
+    "build:prod": "NODE_ENV=production webpack",
     "db-setup": "node dbSetup.babel.js",
-    "build": "webpack --watch",
-    "test": "./node_modules/karma/bin/karma start",
-    "lint": "eslint client server universal test server.js dbSetup.js"
+    "lint": "eslint client server universal test server.js dbSetup.js",
+    "start": "NODE_ENV=development node server.babel.js & node server.webpack.js",
+    "start:prod": "NODE_ENV=production node server.babel.js",
+    "test": "./node_modules/karma/bin/karma start"
   },
   "keywords": [
     "react",
@@ -58,6 +59,7 @@
     "css-loader": "0.17.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.15.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "karma": "^0.13.16",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",

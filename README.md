@@ -28,9 +28,19 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `npm install`
  - If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
  - Run `npm run db-setup` to set up DB
- - Run `npm run build` to build application files and watch for changes
- - Run `npm start`
+ - Run `npm start` will start Webpack dev server - for serving the client, and also start the API server
  - Go to http://localhost:3001 in two seperate tabs - see changes propagate in real time (Hot Module Replacement works too)
+
+### Deploying to a server
+
+You will need to roll out your own deployment script for a server, but before you can ship you will need to:
+
+ - Build the client with `npm run build:prod`
+ - Ensure all production npm modules are installed on the server. e.g. `npm install --prod`
+ - Rsync your application to your server
+ - Set up nginx or your web server of choice to map HTTP requests for your URL to `http://localhost:3000`
+ - Run `npm run start:prod` to run on your server
+ - Go to your URL
 
 ### Tech Used
 

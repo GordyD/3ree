@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 /**
  * Server middleware
  */
-app.use(require('serve-static')(path.join(__dirname, 'dist')));
+app.use(require('serve-static')(path.join(__dirname, config.get('buildDirectory'))));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
