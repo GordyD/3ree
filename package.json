@@ -78,6 +78,7 @@
     "react-transform-hmr": "^1.0.1",
     "redux-devtools": "2.1.5",
     "redux-mock-store": "0.0.6",
+    "sinon": "^1.17.3",
     "style-loader": "0.13.0",
     "webpack": "1.12.11",
     "webpack-dev-server": "1.14.1"
