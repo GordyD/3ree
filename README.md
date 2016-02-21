@@ -17,8 +17,12 @@ This project is useful for:
 ### Main Features
 
  - Universal (Isomorphic) Javascript
- - Asyncronous example
- - Use of RethinkDB Changefeeds for Realtime
+ - Asyncronous Redux actions example
+ - Use of RethinkDB Changefeeds for realtime updates reflected in the UI
+
+### Demo
+
+There is a demo app hosted at [3ree-demo.workshape.io](http://3ree-demo.workshape.io). Check it out. If it is down, please email me at gordon@workshape.io
 
 ### Setup
 
@@ -28,10 +32,13 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
  - Run `npm install`
  - If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
  - Run `npm run db-setup` to set up DB
+
+### Running Dev Server
+
  - Run `npm start` will start Webpack dev server - for serving the client, and also start the API server
  - Go to http://localhost:3001 in two seperate tabs - see changes propagate in real time (Hot Module Replacement works too)
 
-### Deploying to a server
+### Running Production Server
 
 You will need to roll out your own deployment script for a server, but before you can ship you will need to:
 
@@ -44,14 +51,16 @@ You will need to roll out your own deployment script for a server, but before yo
 
 ### Tech Used
 
- - React - view layer
- - React Router - universal routing
- - Redux - state management
- - RethinkDB - persistance layer
- - Express - server framework
- - Socket.io - for realtime communication between clients and server
- - Webpack - module bundling + build for client
- - Superagent - universal http requests
+| ** Tech **| **Description** | **Version** |
+| ----------|-----------------|-------------|
+| [React](https://facebook.github.io/react/) | View layer | 0.14.7 |
+| [React Router](https://github.com/reactjs/react-router) | Universal routing | 2.0.0 |
+| [Redux](http://redux.js.org/) | State management | 3.1.0 |
+| [RethinkDB](http://www.rethinkdb.com) | Persistance layer | 2.2.4 |
+| [Express](http://expressjs.com/) | Node.js server framework | 4.13.3 |
+| [Socket.io]() | Used for realtime communication between clients and server | 1.4.4 |
+| [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.12.11 |
+| [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.6.1 |
 
 
 
