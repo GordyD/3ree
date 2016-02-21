@@ -51,8 +51,8 @@ You will need to roll out your own deployment script for a server, but before yo
 
 ### Tech Used
 
-| ** Tech **| **Description** | **Version** |
-| ----------|-----------------|-------------|
+| **Tech** | **Description** | **Version** |
+| ---------|-----------------|-------------|
 | [React](https://facebook.github.io/react/) | View layer | 0.14.7 |
 | [React Router](https://github.com/reactjs/react-router) | Universal routing | 2.0.0 |
 | [Redux](http://redux.js.org/) | State management | 3.1.0 |
