@@ -5,6 +5,7 @@ import { syncHistory, routeReducer } from 'react-router-redux';
 import { persistState } from 'redux-devtools';
 
 import pulseApp from '../reducers';
+import DevTools from '../containers/devTools';
 
 export default (req, initialState) => {
   console.log('Server router!');
@@ -13,12 +14,20 @@ export default (req, initialState) => {
     pulseApp
   });
 
-  const reduxRouterMiddleware = syncHistory(createHistory(req.originalUrl));
-  const enhancer = compose(
+  const reduxRouterMiddleware = syncHistory(createHistory());
+
+  let enhancer = compose(
     applyMiddleware(thunkMiddleware, reduxRouterMiddleware)
   );
 
-  return createStore(rootReducer, initialState);
+  if (process.env.NODE_ENV !== 'production') {
+    enhancer = compose(
+      applyMiddleware(thunkMiddleware, reduxRouterMiddleware),
+      DevTools.instrument()
+    );
+  }
+
+  return createStore(rootReducer, initialState, enhancer);
 };
 
     

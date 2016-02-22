@@ -1,0 +1,19 @@
+/* :not(:required) hides this rule from IE9 and below */
+.Pulse-async-spinner:not(:required)
+  animation: Pulse-async-spinner 1250ms infinite linear
+  border: 5px solid #1B98F8
+  border-right-color: transparent
+  border-radius: 12px
+  box-sizing: border-box
+  display: inline-block
+  position: relative
+  overflow: hidden
+  text-indent: -9999px
+  width: 24px
+  height: 24px
+
+@keyframes Pulse-async-spinner 
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

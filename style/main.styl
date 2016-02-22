@@ -1,0 +1,215 @@
+body
+  background-color: #fff
+
+h1, h2, h3, p
+  margin: 0px
+
+*
+  font-family: 'Source Sans Pro', sans-serif
+
+.Pulse-header
+  background-color: #252A3A
+  color: #1B98F8
+  margin-bottom: 20px
+  box-shadow: 0px 3px 12px #4B7197
+
+  h1
+    padding: 20px
+    text-transform: uppercase
+    text-align: center
+
+.Pulse-links
+  padding: 10px
+  text-align: center
+
+  a
+    padding: 10px
+    color: #fff
+    text-decoration: none
+
+    &:hover
+      color: #cccccc 
+
+    &.active
+      text-decoration: underline 
+
+.Pulse-addEventForm, .Pulse-eventList, .Pulse-async
+  width: 600px
+  margin: 0 auto
+  padding-bottom: 20px
+
+.Pulse-async
+  text-align: center
+  min-height: 30px
+
+  .Pulse-async-error
+    color: #EE5656
+    font-weight: bold
+
+.Pulse-addEventForm 
+  form
+    text-align: center
+
+form label
+  color: #4B7197
+  margin-left: 10px
+
+.Pulse-eventInput-value
+  display: inline-block
+  color: #4B7197
+  margin-right: 15px
+  font-weight: bold
+  width: 40px
+
+.Pulse-eventList-summary
+  padding-bottom: 10px
+  color: #252A3A
+  
+  margin-bottom: 10px
+  text-align: center
+
+  span
+    margin: 5px
+
+.val
+  font-weight: 700
+
+.Pulse-eventInput 
+  input, button, label
+    margin-right: 6px
+
+  input[type=text]
+    padding: 10px
+    border: solid 1px #4B7197
+    background-color: #fff
+    color: #1B98F8
+    appearance: none
+    box-shadow: none
+    transition: box-shadow 0.5s
+    
+    &:focus, &.focus
+      box-shadow: 0 0 5px 1px #4B7197
+
+    &::-webkit-input-placeholder
+      color: #4B7197
+
+  input[type=range]
+    -webkit-appearance: none
+    background-color: transparent
+    vertical-align: middle
+    margin: -3px 15px 0
+
+    &::-webkit-slider-runnable-track
+      width: 300px
+      height: 3px
+      background: #ddd
+      border: none
+      border-radius: 5px
+
+  input[type=range]::-webkit-slider-thumb
+    -webkit-appearance: none
+    border: none
+    height: 16px
+    width: 16px
+    border-radius: 50%
+    background: rgba(27,152,148, 0.5)
+    margin-top: -7px
+
+  input.very-low[type=range]::-webkit-slider-thumb
+    background: #84C8FB
+  input.low[type=range]::-webkit-slider-thumb
+    background: #6ABCFA
+  input.mid[type=range]::-webkit-slider-thumb
+    background: #4FB0F9
+  input.high[type=range]::-webkit-slider-thumb
+    background: #35A4F8
+  input.very-high[type=range]::-webkit-slider-thumb
+    background: #1B98F8
+
+  input[type=range]:focus
+    outline: none
+
+  input[type=range]:focus::-webkit-slider-runnable-track
+    background: #ccc
+
+  button
+    background-color: #1B98F8
+    color: #fff
+
+.Pulse-eventList-list 
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+  li
+    padding: 10px 20px
+    background-color: #F8F8F8
+  
+  li:first-child
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+
+  li:last-child
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    box-shadow: 0 3px 12px -8px #4B7197
+
+  li.odd
+    background-color: #F2F2F2
+
+  form
+    margin: 0
+
+  fieldset
+    padding: 0
+
+.Pulse-eventItem 
+  p
+    margin-top: 6px
+
+  &.empty 
+    p
+      margin-top: 0px
+      text-align: center
+      color: #cdcdcd
+
+  &.rowNumber
+    float: left
+    color: #cdcdcd
+    width: 20px
+    padding-right: 5px
+
+  p.title
+    float: left
+    color: #4B7197
+    cursor: pointer
+
+  p.title:hover
+    text-decoration: underline
+
+  p.outcome, p.created
+    float: right
+    padding-right: 15px
+    color: #cdcdcd
+
+  p.outcom
+    font-weight: bold
+    color: #252A3A
+
+  .destroy
+    background-color: #EE5656
+    color: #fff
+
+    &::before
+      content: 'x'
+
+  .destroy, .save
+    float: right
+    margin-right: 0
+
+  &::after
+    clear: both
+    content: '.'
+    display: block
+    height: 0
+    visibility: hidden

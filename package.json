@@ -28,6 +28,7 @@
     "express": "4.13.3",
     "history": "1.13.0",
     "moment": "2.11.1",
+    "nib": "^1.1.0",
     "node-uuid": "1.4.7",
     "react": "0.14.7",
     "react-dom": "0.14.7",
@@ -84,6 +85,8 @@
     "redux-devtools-log-monitor": "^1.0.2",
     "redux-mock-store": "0.0.6",
     "style-loader": "0.13.0",
+    "stylus": "^0.53.0",
+    "stylus-loader": "^1.5.1",
     "webpack": "1.12.11",
     "webpack-dev-server": "1.14.1"
   }

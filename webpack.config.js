@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var nib = require('nib');
 
 var config = require('config');
 
@@ -17,16 +18,30 @@ var output = {
   filename: 'bundle.js'
 };
 
-console.log(output.path);
 var plugins = [
   defineEnvPlugin,
   new ExtractTextPlugin('style.css'),
   new webpack.NoErrorsPlugin()
 ];
-var jsLoaders = [ 'babel' ];
+
+var moduleLoaders = [
+  {
+    test: /\.js$/,
+    loaders: [ 'babel' ],
+    exclude: /node_modules/,
+    include: __dirname
+  }, {
+    test: /\.css?$/,
+    loaders: [ ExtractTextPlugin.extract('style-loader', 'css-loader'), 'raw' ],
+    include: __dirname
+  }, {
+    test: /\.styl?$/,
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
+    include: __dirname
+  }
+];
 
 if (isDev) {
-  console.log('Development Environment!!');
   output.publicPath = 'http://localhost:3001/';
   plugins.push(new webpack.HotModuleReplacementPlugin());
   entryScripts = [
@@ -34,23 +49,34 @@ if (isDev) {
     'webpack/hot/only-dev-server',
     appEntry
   ];
-  jsLoaders = [ 'react-hot', 'babel' ];
+
+  moduleLoaders = [
+    {
+      test: /\.js$/,
+      loaders: [ 'react-hot', 'babel' ],
+      exclude: /node_modules/,
+      include: __dirname
+    }, {
+      test: /\.css?$/,
+      loaders: [ 'style-loader', 'css-loader' ],
+      include: __dirname
+    }, {
+      test: /\.styl?$/,
+      loaders: [ 'style-loader', 'css-loader', 'stylus-loader' ],
+      include: __dirname
+    }
+  ];
 }
+
 module.exports = {
   devtool: 'eval',
   entry: entryScripts,
   output: output,
   plugins: plugins,
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: jsLoaders,
-      exclude: /node_modules/,
-      include: __dirname
-    }, {
-      test: /\.css?$/,
-      loaders: [ ExtractTextPlugin.extract('style-loader', 'css-loader'), 'raw' ],
-      include: __dirname
-    }]
+    loaders: moduleLoaders
+  },
+  stylus: {
+    use: [ nib() ]
   }
 };
