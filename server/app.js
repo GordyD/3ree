@@ -11,6 +11,7 @@ import DevTools from '../universal/containers/devTools';
 const isDev = (process.env.NODE_ENV !== 'production');
 
 export function handleRender(req, res) {
+  console.log(' [x] Request for', req.url);
   eventService.getEvents()
   .then(initialEvents => {
     let initialState = {pulseApp: { events: initialEvents, userId: 'baseUser'} };
@@ -44,7 +45,7 @@ export function handleRender(req, res) {
       );
 
       // Send the rendered page back to the client with the initial state
-      res.render('index', { html: html, initialState: JSON.stringify(store.getState()) });
+      res.render('index', { isProd: (!isDev), html: html, initialState: JSON.stringify(store.getState()) });
     });
   });
 }
