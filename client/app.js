@@ -12,8 +12,8 @@ import * as actions from '../universal/actions/PulseActions';
 import Root from '../universal/containers/root';
 
 import '../style/pure.css';
-import '../style/main.css';
-import '../style/spinner.css';
+import '../style/main.styl';
+import '../style/spinner.styl';
 
 
 ReactDOM.render(

@@ -6,6 +6,9 @@ import { RouterContext, match } from 'react-router';
 import * as eventService from './api/service/event';
 import configureStore from '../universal/store';
 import routes from '../universal/routes';
+import DevTools from '../universal/containers/devTools';
+
+const isDev = (process.env.NODE_ENV !== 'production');
 
 export function handleRender(req, res) {
   eventService.getEvents()
@@ -28,13 +31,16 @@ export function handleRender(req, res) {
         return;
       }
 
+      const devTools = (isDev) ? <DevTools /> : null;
+
       // Render the component to a string
       const html = ReactDOMServer.renderToString(
-        <div>
-          <Provider store={store}>
+        <Provider store={store}>
+          <div>
             <RouterContext {...renderProps} />
-          </Provider>
-        </div>
+            {devTools}
+          </div>
+        </Provider>
       );
 
       // Send the rendered page back to the client with the initial state

@@ -61,6 +61,7 @@ You will need to roll out your own deployment script for a server, but before yo
 | [Socket.io]() | Used for realtime communication between clients and server | 1.4.4 |
 | [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.12.11 |
 | [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.6.1 |
+| [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.53.0 |
 
 
 
