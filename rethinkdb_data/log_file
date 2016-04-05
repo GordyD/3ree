@@ -1,0 +1,35 @@
+2016-04-04T17:03:34.249709000 0.388990s notice: Recursively removing directory /Users/StedmanBlakeHood/Sites/3ree/rethinkdb_data/tmp
+2016-04-04T17:03:34.251998000 0.391284s notice: Initializing directory /Users/StedmanBlakeHood/Sites/3ree/rethinkdb_data
+2016-04-04T17:03:34.252106000 0.391386s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/StedmanBlakeHood/Sites/3ree/rethinkdb_data' did not already exist or is empty.)
+2016-04-04T17:03:34.252162000 0.391442s notice: Running rethinkdb 2.2.6 (CLANG 7.3.0 (clang-703.0.29))...
+2016-04-04T17:03:34.256666000 0.395946s notice: Running on Darwin 15.3.0 x86_64
+2016-04-04T17:03:34.256713000 0.395992s notice: Loading data from directory /Users/StedmanBlakeHood/Sites/3ree/rethinkdb_data
+2016-04-04T17:03:34.402170000 0.541450s info: Automatically using cache size of 100 MB
+2016-04-04T17:03:34.402181000 0.541461s warn: Cache size does not leave much memory for server and query overhead (available memory: 876 MB).
+2016-04-04T17:03:34.402186000 0.541466s warn: Cache size is very low and may impact performance.
+2016-04-04T17:03:34.405653000 0.544933s notice: Listening for intracluster connections on port 29015
+2016-04-04T17:03:34.408174000 0.547454s notice: Listening for client driver connections on port 28015
+2016-04-04T17:03:34.408355000 0.547635s notice: Listening for administrative HTTP connections on port 8080
+2016-04-04T17:03:34.408359000 0.547639s notice: Listening on addresses: 127.0.0.1, ::1
+2016-04-04T17:03:34.408360000 0.547640s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-04-04T17:03:34.408363000 0.547643s notice: Server ready, "Stedmans_MacBook_Pro_local_mm9" 7c74f154-f2ce-460c-b250-5f4e0bacbf5e
+2016-04-04T17:03:45.535237000 11.673961s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: Added replica on this server.
+2016-04-04T17:03:46.648610000 12.787255s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: Starting a new Raft election for term 1.
+2016-04-04T17:03:46.661215000 12.799859s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: This server is Raft leader for term 1. Latest log index is 0.
+2016-04-04T19:03:54.068164000 4485.938366s notice: Server got SIGINT from pid 4362, uid 501; shutting down...
+2016-04-04T19:03:54.068373000 4485.938575s notice: Shutting down client connections...
+2016-04-04T19:03:54.068645000 4485.938847s notice: All client connections closed.
+2016-04-04T19:03:54.068654000 4485.938856s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-04-04T19:03:54.079053000 4485.949256s notice: Storage engine shut down.
+2016-04-05T10:01:43.349724000 0.314735s notice: Running rethinkdb 2.2.6 (CLANG 7.3.0 (clang-703.0.29))...
+2016-04-05T10:01:43.358609000 0.323617s notice: Running on Darwin 15.3.0 x86_64
+2016-04-05T10:01:43.358662000 0.323668s notice: Loading data from directory /Users/StedmanBlakeHood/Sites/3ree/rethinkdb_data
+2016-04-05T10:01:43.398127000 0.363093s info: Automatically using cache size of 355 MB
+2016-04-05T10:01:43.401449000 0.366415s notice: Listening for intracluster connections on port 29015
+2016-04-05T10:01:43.421391000 0.386317s notice: Listening for client driver connections on port 28015
+2016-04-05T10:01:43.421752000 0.386678s notice: Listening for administrative HTTP connections on port 8080
+2016-04-05T10:01:43.421754000 0.386680s notice: Listening on addresses: 127.0.0.1, ::1
+2016-04-05T10:01:43.421755000 0.386681s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-04-05T10:01:43.421756000 0.386682s notice: Server ready, "Stedmans_MacBook_Pro_local_mm9" 7c74f154-f2ce-460c-b250-5f4e0bacbf5e
+2016-04-05T10:01:45.017351000 1.982277s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: Starting a new Raft election for term 2.
+2016-04-05T10:01:45.036996000 2.001922s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: This server is Raft leader for term 2. Latest log index is 3.
