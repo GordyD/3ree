@@ -22,8 +22,8 @@ class PulseApp extends Component {
   };
 
   render() {
-    let actions = { 
-      editEvent: this.props.editEvent, 
+    let actions = {
+      editEvent: this.props.editEvent,
       deleteEvent: this.props.deleteEvent
     };
 
@@ -34,6 +34,7 @@ class PulseApp extends Component {
           <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
         <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
+        {this.props.home}
         {this.props.myEvents}
         {this.props.otherEvents}
       </div>
@@ -50,6 +51,6 @@ export default connect(
     userId: state.pulseApp.userId,
     isWorking: state.pulseApp.isWorking,
     error: state.pulseApp.error
-  }), 
+  }),
   dispatch => bindActionCreators(PulseActions, dispatch)
 )(PulseApp);
