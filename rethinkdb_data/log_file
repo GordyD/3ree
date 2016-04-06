@@ -33,3 +33,6 @@
 2016-04-05T10:01:43.421756000 0.386682s notice: Server ready, "Stedmans_MacBook_Pro_local_mm9" 7c74f154-f2ce-460c-b250-5f4e0bacbf5e
 2016-04-05T10:01:45.017351000 1.982277s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: Starting a new Raft election for term 2.
 2016-04-05T10:01:45.036996000 2.001922s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: This server is Raft leader for term 2. Latest log index is 3.
+2016-04-06T10:03:26.558369000 46911.273883s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: Added replica on this server.
+2016-04-06T10:03:28.044989000 46912.760425s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: Starting a new Raft election for term 1.
+2016-04-06T10:03:28.060382000 46912.775818s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: This server is Raft leader for term 1. Latest log index is 0.

@@ -1,7 +1,7 @@
-import { 
+import {
   LOAD_EVENTS_REQUEST, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_FAILURE,
   ADD_EVENT_REQUEST, ADD_EVENT_SUCCESS, ADD_EVENT_FAILURE,
-  DELETE_EVENT_REQUEST, DELETE_EVENT_SUCCESS, DELETE_EVENT_FAILURE, 
+  DELETE_EVENT_REQUEST, DELETE_EVENT_SUCCESS, DELETE_EVENT_FAILURE,
   EDIT_EVENT_REQUEST, EDIT_EVENT_SUCCESS, EDIT_EVENT_FAILURE,
   SET_USER_ID
 } from '../constants/ActionTypes';
@@ -67,13 +67,13 @@ export default function pulses(state = initialState, action) {
         )
       });
 
-    case ADD_EVENT_FAILURE: 
-    case DELETE_EVENT_FAILURE: 
+    case ADD_EVENT_FAILURE:
+    case DELETE_EVENT_FAILURE:
     case EDIT_EVENT_FAILURE:
       return Object.assign({}, state, {
         isWorking: false,
         error: action.error,
-      }); 
+      });
 
     default:
       return state;
