@@ -30,13 +30,15 @@ class PulseApp extends Component {
     return (
       <div className="Pulse-Container">
         <Header/>
-        <section className='Pulse-addEventForm'>
-          <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
-        </section>
-        <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
         {this.props.home}
-        {this.props.myEvents}
-        {this.props.otherEvents}
+        <div>
+          <section className='Pulse-addEventForm'>
+            <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
+          </section>
+          <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
+          {this.props.myEvents}
+          {this.props.otherEvents}
+        </div>
       </div>
     );
   }
