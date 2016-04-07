@@ -8,7 +8,7 @@ export default class EventList extends Component {
   };
 
   renderFooter() {
-    return <UserInput />
+    return <UserInput onSubmit={this.props.addUser} />;
   }
 
   render() {
@@ -42,7 +42,6 @@ export default class EventList extends Component {
               <th>Admin Actions</th>
             </tr>
           </thead>
-          {/* TODO(stedman): Move this to its own component, and obviously add inputs*/}
           <tfoot>
             {this.renderFooter()}
           </tfoot>
