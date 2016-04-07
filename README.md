@@ -3,6 +3,10 @@ TODO
 Q: why is the serverside rendering issue happening?
 Q:
 
+- [ ] Create UserItem component
+- [ ] Check that the UserList is rendering properly
+- [ ] Create User Actions
+
 ## 3REE
 [![Circle CI](https://circleci.com/gh/GordyD/3ree.svg?style=svg)](https://circleci.com/gh/GordyD/3ree)
 
