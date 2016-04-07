@@ -31,6 +31,7 @@ class PulseApp extends Component {
       <div className="Pulse-Container">
         <Header/>
         {this.props.home}
+        {this.props.userScreen}
         <div>
           <section className='Pulse-addEventForm'>
             <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
