@@ -5,13 +5,12 @@ import UserInput from './UserInput';
 
 export default class EventList extends Component {
   static propTypes = {
+    addUser: PropTypes.func.isRequired,
     users: PropTypes.array.isRequired
   };
 
   renderFooter() {
-    return (
-      <UserInput onSubmit={this.props.addUser} />
-    );
+    return <UserInput onSubmit={this.props.addUser} />;
   }
 
   render() {

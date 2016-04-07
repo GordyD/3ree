@@ -79,9 +79,9 @@ export default class EventInput extends Component {
   }
 
   render() {
-    let self = this;
     let saveText = (this.props.editing) ? 'Save' : 'Add';
 
+    // This needs to be wrapped in <tr>'s and <td>'s because it's being inserted into the user-list table
     return (
       <tr>
         <td>
