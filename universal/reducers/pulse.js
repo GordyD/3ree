@@ -10,7 +10,8 @@ const initialState = {
   isWorking: false,
   userId: null,
   error: null,
-  events: []
+  events: [],
+  users: []
 };
 
 export default function pulses(state = initialState, action) {
