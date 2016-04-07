@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import UserList from '../components/UserList';
+import UserList from '../components/UserList';
 
 import * as PulseActions from '../actions/PulseActions';
 
@@ -12,13 +12,8 @@ class UserScreen extends Component {
   };
 
   render() {
-    const {users} = this.props;
-    console.log(users);
     return (
-      <div>
-        <h1>USER PAGE :P</h1>
-      </div>
-      // <UserList users={this.props.users} />
+      <UserList users={this.props.users} />
     );
   }
 }
