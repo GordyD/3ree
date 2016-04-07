@@ -24,7 +24,7 @@ export default class EventList extends Component {
     }
 
     return (
-      <section className='Pulse-eventList'>
+      <section className='users-list'>
         <table>
           <thead>
             <tr>
