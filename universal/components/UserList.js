@@ -7,6 +7,10 @@ export default class EventList extends Component {
     users: PropTypes.array.isRequired
   };
 
+  renderFooter() {
+    return <UserInput />
+  }
+
   render() {
     const { users } = this.props;
     let list;
@@ -35,8 +39,13 @@ export default class EventList extends Component {
               <th>city</th>
               <th>state</th>
               <th>zipcode</th>
+              <th>Admin Actions</th>
             </tr>
           </thead>
+          {/* TODO(stedman): Move this to its own component, and obviously add inputs*/}
+          <tfoot>
+            {this.renderFooter()}
+          </tfoot>
           <tbody>
             {list}
           </tbody>

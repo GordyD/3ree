@@ -25,6 +25,8 @@ export default class UserListRow extends Component {
         <td>{user.city}</td>
         <td>{user.state}</td>
         <td>{user.zipcode}</td>
+        {/* TODO(stedman): Add button here to edit or delete the user. */}
+        <td>EDIT</td>
       </tr>
     );
   }
