@@ -7,6 +7,7 @@ import config from 'config';
 
 import * as api from './server/api/http';
 import * as eventService from './server/api/service/event';
+import * as userService from './server/api/service/user';
 import * as uni from './server/app.js';
 
 const app = express();
@@ -42,6 +43,6 @@ app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, 'images'
  */
 app.get('*', uni.handleRender);
 
-eventService.liveUpdates(io);
+eventService.liveEventUpdates(io);
 
 httpServer.listen(port);
