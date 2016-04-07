@@ -1,6 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 // TODO(stedman) create this:
 import UserListRow from './UserListRow';
+import UserInput from './UserInput';
 
 export default class EventList extends Component {
   static propTypes = {
@@ -8,7 +9,9 @@ export default class EventList extends Component {
   };
 
   renderFooter() {
-    return <UserInput onSubmit={this.props.addUser} />;
+    return (
+      <UserInput onSubmit={this.props.addUser} />
+    );
   }
 
   render() {
