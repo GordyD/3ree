@@ -22,43 +22,43 @@ export function handleRender(req, res) {
   userService.getUsers()
   .then(initialUsers => {
     initialState.pulseApp.users = initialUsers;
-  });
+  })
+  .then(() => {
+    eventService.getEvents()
+    .then(initialEvents => {
+      initialState.pulseApp.events = initialEvents;
 
-  // Add events to initialState, &c.
-  eventService.getEvents()
-  .then(initialEvents => {
-    initialState.pulseApp.events = initialEvents;
+      const store = configureStore(req, initialState);
 
-    const store = configureStore(req, initialState);
+      // Wire up routing based upon routes
+      match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+        if (error)  {
+          console.log('Error', error);
+          res.status(400);
+          res.send(error);
+          return;
+        }
 
-    // Wire up routing based upon routes
-    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-      if (error)  {
-        console.log('Error', error);
-        res.status(400);
-        res.send(error);
-        return;
-      }
+        if (redirectLocation) {
+          res.redirect(redirectLocation);
+          return;
+        }
 
-      if (redirectLocation) {
-        res.redirect(redirectLocation);
-        return;
-      }
+        const devTools = (isDev) ? <DevTools /> : null;
 
-      const devTools = (isDev) ? <DevTools /> : null;
+        // Render the component to a string
+        const html = ReactDOMServer.renderToString(
+          <Provider store={store}>
+            <div>
+              <RouterContext {...renderProps} />
+              {devTools}
+            </div>
+          </Provider>
+        );
 
-      // Render the component to a string
-      const html = ReactDOMServer.renderToString(
-        <Provider store={store}>
-          <div>
-            <RouterContext {...renderProps} />
-            {devTools}
-          </div>
-        </Provider>
-      );
-
-      // Send the rendered page back to the client with the initial state
-      res.render('index', { isProd: (!isDev), html: html, initialState: JSON.stringify(store.getState()) });
+        // Send the rendered page back to the client with the initial state
+        res.render('index', { isProd: (!isDev), html: html, initialState: JSON.stringify(store.getState()) });
+      });
     });
   });
 }

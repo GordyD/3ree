@@ -8,12 +8,12 @@ import * as PulseActions from '../actions/PulseActions';
 
 class UserScreen extends Component {
   static propTypes = {
-    users: React.PropTypes.array
+    users: React.PropTypes.array,
+    events: React.PropTypes.array
   };
 
   render() {
     const {users} = this.props;
-
     console.log(users);
     return (
       <div>
@@ -30,6 +30,7 @@ class UserScreen extends Component {
  */
 export default connect(
   state => ({
+    events: state.pulseApp.events,
     users: state.pulseApp.users,
   }),
   dispatch => bindActionCreators(PulseActions, dispatch)
