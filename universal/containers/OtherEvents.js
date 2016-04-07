@@ -26,6 +26,6 @@ export default connect(
   state => ({
     events: state.pulseApp.events,
     userId: state.pulseApp.userId
-  }), 
+  }),
   dispatch => bindActionCreators(PulseActions, dispatch)
 )(OtherEvents);
