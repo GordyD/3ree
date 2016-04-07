@@ -31,6 +31,14 @@ app.use(bodyParser.json());
 /**
  * API Endpoints
  */
+// ----------------------------------
+// Users
+// ----------------------------------
+app.get('/api/0/users', api.getUsers);
+
+// ----------------------------------
+// Events
+// ----------------------------------
 app.get('/api/0/events', api.getEvents);
 app.post('/api/0/events', api.addEvent);
 app.post('/api/0/events/:id', api.editEvent);
