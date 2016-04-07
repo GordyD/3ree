@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
 
 import * as eventService from './api/service/event';
+import * as userService from './api/service/user';
 import configureStore from '../universal/store';
 import routes from '../universal/routes';
 import DevTools from '../universal/containers/devTools';
@@ -18,7 +19,7 @@ export function handleRender(req, res) {
   // Add users to initialState. Can't get users and events at once,
   // because can't do multiple queries and return multiple streams.
   // http://stackoverflow.com/questions/19505469/how-to-get-reponse-of-multiple-queries-in-a-single-rethinkdb-request?rq=1
-  eventService.getUsers()
+  userService.getUsers()
   .then(initialUsers => {
     initialState.pulseApp.users = initialUsers;
   });

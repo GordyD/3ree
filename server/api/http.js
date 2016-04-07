@@ -1,7 +1,7 @@
-import * as service from './service/event';
+import * as eventService from './service/event';
 
 export function getEvents(req, res) {
-  service.getEvents()
+  eventService.getEvents()
   .then((events) => res.json(events))
   .catch(err => {
     res.status(400);
@@ -10,7 +10,7 @@ export function getEvents(req, res) {
 }
 
 export function addEvent(req, res) {
-  service.addEvent(req.body)
+  eventService.addEvent(req.body)
   .then((event) => res.json(event))
   .catch(err => {
     res.status(400);
@@ -19,7 +19,7 @@ export function addEvent(req, res) {
 }
 
 export function editEvent(req, res) {
-  service.editEvent(req.params.id, req.body)
+  eventService.editEvent(req.params.id, req.body)
   .then((event) => res.json(event))
   .catch(err => {
     res.status(400);
@@ -28,7 +28,7 @@ export function editEvent(req, res) {
 }
 
 export function deleteEvent(req, res) {
-  service.deleteEvent(req.params.id)
+  eventService.deleteEvent(req.params.id)
   .then((event) => res.json(event))
   .catch(err => {
     res.status(400);
