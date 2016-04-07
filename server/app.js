@@ -12,9 +12,21 @@ const isDev = (process.env.NODE_ENV !== 'production');
 
 export function handleRender(req, res) {
   console.log(' [x] Request for', req.url);
+  // Initialize initialState object:
+  let initialState = { pulseApp: { userId: 'baseUser' } };
+
+  // Add users to initialState. Can't get users and events at once,
+  // because can't do multiple queries and return multiple streams.
+  // http://stackoverflow.com/questions/19505469/how-to-get-reponse-of-multiple-queries-in-a-single-rethinkdb-request?rq=1
+  eventService.getUsers()
+  .then(initialUsers => {
+    initialState.pulseApp.users = initialUsers;
+  });
+
+  // Add events to initialState, &c.
   eventService.getEvents()
   .then(initialEvents => {
-    let initialState = {pulseApp: { events: initialEvents, userId: 'baseUser'} };
+    initialState.pulseApp.events = initialEvents;
 
     const store = configureStore(req, initialState);
 

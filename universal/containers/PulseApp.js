@@ -45,7 +45,7 @@ class PulseApp extends Component {
 }
 
 /**
- * Expose "Smart" Component that is connect-ed to Redux
+ * Expose "Smart" Component that decorates PulseApp with `state` and the PulseActions' `actionCreators`.
  */
 export default connect(
   state => ({

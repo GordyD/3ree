@@ -22,6 +22,21 @@ export function liveUpdates(io) {
   });
 }
 
+// ----------------------------------------
+// Users
+// ----------------------------------------
+export function getUsers() {
+  return connect()
+  .then(conn => {
+    return r
+    .table('users').run(conn)
+    .then(cursor => cursor.toArray());
+  });
+}
+
+// ----------------------------------------
+// Events
+// ----------------------------------------
 export function getEvents() {
   return connect()
   .then(conn => {
