@@ -36,3 +36,23 @@
 2016-04-06T10:03:26.558369000 46911.273883s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: Added replica on this server.
 2016-04-06T10:03:28.044989000 46912.760425s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: Starting a new Raft election for term 1.
 2016-04-06T10:03:28.060382000 46912.775818s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: This server is Raft leader for term 1. Latest log index is 0.
+2016-04-06T23:09:30.642203000 79658.859035s notice: Server got SIGINT from pid 4362, uid 501; shutting down...
+2016-04-06T23:09:30.645266000 79658.862098s notice: Shutting down client connections...
+2016-04-06T23:09:30.658296000 79658.875128s notice: All client connections closed.
+2016-04-06T23:09:30.658319000 79658.875150s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-04-06T23:09:30.788134000 79659.004965s notice: Storage engine shut down.
+2016-04-06T23:09:32.495314000 0.444657s notice: Running rethinkdb 2.2.6 (CLANG 7.3.0 (clang-703.0.29))...
+2016-04-06T23:09:32.508671000 0.458011s notice: Running on Darwin 15.3.0 x86_64
+2016-04-06T23:09:32.508750000 0.458087s notice: Loading data from directory /Users/StedmanBlakeHood/Sites/3ree/rethinkdb_data
+2016-04-06T23:09:32.557614000 0.506952s info: Automatically using cache size of 100 MB
+2016-04-06T23:09:32.557626000 0.506963s warn: Cache size is very low and may impact performance.
+2016-04-06T23:09:32.561166000 0.510504s notice: Listening for intracluster connections on port 29015
+2016-04-06T23:09:32.609301000 0.558639s notice: Listening for client driver connections on port 28015
+2016-04-06T23:09:32.609482000 0.558819s notice: Listening for administrative HTTP connections on port 8080
+2016-04-06T23:09:32.609493000 0.558830s notice: Listening on addresses: 127.0.0.1, ::1
+2016-04-06T23:09:32.609494000 0.558831s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-04-06T23:09:32.609501000 0.558838s notice: Server ready, "Stedmans_MacBook_Pro_local_mm9" 7c74f154-f2ce-460c-b250-5f4e0bacbf5e
+2016-04-06T23:09:33.697758000 1.647096s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: Starting a new Raft election for term 2.
+2016-04-06T23:09:33.756147000 1.705407s info: Table 054a4db3-3d8d-45a7-83b6-5d2280702fc4: This server is Raft leader for term 2. Latest log index is 3.
+2016-04-06T23:09:34.065173000 2.014433s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: Starting a new Raft election for term 3.
+2016-04-06T23:09:34.101652000 2.050912s info: Table 9d7404c1-897a-4e87-9ea6-63e849a1c39f: This server is Raft leader for term 3. Latest log index is 6.
