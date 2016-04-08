@@ -5,21 +5,23 @@ import UserInput from './UserInput';
 
 export default class EventList extends Component {
   static propTypes = {
-    addUser: PropTypes.func.isRequired,
+    actions: PropTypes.object.isRequired,
     users: PropTypes.array.isRequired
   };
 
   renderFooter() {
-    return <UserInput onSubmit={this.props.addUser} />;
+    const addUser = this.props.actions;
+
+    return <UserInput onSubmit={addUser} />;
   }
 
   render() {
-    const { users } = this.props;
+    const { users, actions } = this.props;
     let list;
 
     if (users.length > 0) {
       list = users.map((user, key) =>
-        <UserListRow key={key} row={key} user={user} />
+        <UserListRow key={key} row={key} user={user} {...actions} />
       );
     } else {
       list = <tr>
