@@ -38,7 +38,7 @@ ActionTypes.js
   DELETE_USER_SUCCESS
   DELETE_USER_FAILURE
 
-reducers/pulse.js
+reducers/pulse.js // this is what would be the dispatcher in Flux. In this case it's a master reducer: taking state and action, and passing them to the appropriate child reducers. These child reducers take the old state and the action payload, merge them, and return the new state.
   EDIT_USER_REQUEST
   EDIT_USER_SUCCESS
   EDIT_USER_FAILURE
