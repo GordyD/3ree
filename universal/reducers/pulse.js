@@ -3,7 +3,7 @@ import {
   ADD_EVENT_REQUEST, ADD_EVENT_SUCCESS, ADD_EVENT_FAILURE,
   DELETE_EVENT_REQUEST, DELETE_EVENT_SUCCESS, DELETE_EVENT_FAILURE,
   EDIT_EVENT_REQUEST, EDIT_EVENT_SUCCESS, EDIT_EVENT_FAILURE,
-  SET_USER_ID
+  SET_USER_ID, ADD_USER_REQUEST, ADD_USER_SUCCESS, ADD_USER_FAILURE
 } from '../constants/ActionTypes';
 
 const initialState = {
@@ -20,6 +20,30 @@ export default function pulses(state = initialState, action) {
       return Object.assign({}, state, {
         userId: action.userId
       });
+
+    // ------------------------------------------------------
+    // User
+    // ------------------------------------------------------
+    case ADD_USER_REQUEST:
+      return Object.assign({}, state, {
+        isWorking: true,
+        error: null
+      });
+
+    case ADD_USER_SUCCESS:
+      let users = state.users;
+      if (users.findIndex(existingUser => existingUser.id === action.user.id) === -1) {
+        users = [action.user, ...state.users];
+      }
+      return Object.assign({}, state, {
+        isWorking: false,
+        error: null,
+        users: users
+      });
+
+    // ------------------------------------------------------
+    // Event
+    // ------------------------------------------------------
     case ADD_EVENT_REQUEST:
       return Object.assign({}, state, {
         isWorking: true,
@@ -68,6 +92,7 @@ export default function pulses(state = initialState, action) {
         )
       });
 
+    case ADD_USER_FAILURE:
     case ADD_EVENT_FAILURE:
     case DELETE_EVENT_FAILURE:
     case EDIT_EVENT_FAILURE:
