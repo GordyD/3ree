@@ -3,6 +3,7 @@ import request from 'superagent';
 
 const serverUrl = '';
 const eventsUrl = `${serverUrl}/api/0/events`;
+const usersUrl = `${serverUrl}/api/0/users`;
 
 export function setUserId(userId) {
   return {
@@ -43,6 +44,47 @@ export function loadEventsSuccess(events) {
 export function loadEventsFailure(error) {
   return {
     type: types.LOAD_EVENTS_FAILURE,
+    error
+  };
+}
+
+export function addUser(user) {
+  console.log('Add User', user);
+
+  return dispatch => {
+    dispatch(addUserRequest(user));
+
+    return request
+    .post(usersUrl)
+    .send(user)
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if (err) {
+        dispatch(addUserFailure(err, event));
+      } else {
+        dispatch(addUserSuccess(res.body));
+      }
+    });
+  };
+}
+
+export function addUserRequest(user) {
+  return {
+    type: types.ADD_USER_REQUEST,
+    user
+  };
+}
+
+export function addUserSuccess(user) {
+  return {
+    type: types.ADD_USER_SUCCESS,
+    user
+  };
+}
+
+export function addUserFailure(error, user) {
+  return {
+    type: types.ADD_USER_FAILURE,
     error
   };
 }
