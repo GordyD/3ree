@@ -95,7 +95,87 @@ export function addUserFailure(error, user) {
 // -------------------------------------------------------
 // Delete User
 // -------------------------------------------------------
+export function deleteUser(user) {
+  return dispatch => {
+    dispatch(deleteUserRequest(user));
 
+    return request
+    .del(usersUrl + '/' + user.id)
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if (err) {
+        dispatch(deleteUserFailure(err, user));
+      } else {
+        dispatch(deleteUserSuccess(res.body));
+      }
+    });
+  };
+}
+
+export function deleteUserRequest(user) {
+  return {
+    type: types.DELETE_USER_REQUEST,
+    user
+  };
+}
+
+export function deleteUserSuccess(user) {
+  return {
+    type: types.DELETE_USER_SUCCESS,
+    user
+  };
+}
+
+export function deleteUserFailure(error, user) {
+  return {
+    type: types.DELETE_USER_FAILURE,
+    error,
+    user
+  };
+}
+
+// -------------------------------------------------------
+// Edit User
+// -------------------------------------------------------
+export function editUser(user) {
+  return dispatch => {
+    dispatch(editUserRequest(user));
+
+    return request
+    .post(usersUrl)
+    .send(user)
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if (err) {
+        dispatch(editUserFailure(err, user));
+      } else {
+        dispatch(editUserSuccess(res.body));
+      }
+    });
+  };
+}
+
+export function editUserRequest(user) {
+  return {
+    type: types.EDIT_USER_REQUEST,
+    user
+  };
+}
+
+export function editUserSuccess(user) {
+  return {
+    type: types.EDIT_USER_SUCCESS,
+    user
+  };
+}
+
+export function editUserFailure(error, user) {
+  return {
+    type: types.EDIT_USER_FAILURE,
+    error,
+    user
+  };
+}
 
 // -------------------------------------------------------
 // Add Event
