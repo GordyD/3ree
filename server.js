@@ -35,6 +35,7 @@ app.use(bodyParser.json());
 // Users
 // ----------------------------------
 app.get('/api/0/users', api.getUsers);
+app.post('/api/0/users', api.addUser);
 
 // ----------------------------------
 // Events
