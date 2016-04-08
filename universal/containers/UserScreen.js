@@ -8,13 +8,21 @@ import * as PulseActions from '../actions/PulseActions';
 
 class UserScreen extends Component {
   static propTypes = {
-    addUser: React.PropTypes.func,
-    users: React.PropTypes.array,
+    addUser: React.PropTypes.func.isRequired,
+    editUser: React.PropTypes.func.isRequired,
+    deleteUser: React.PropTypes.func.isRequired,
+    users: React.PropTypes.array
   };
 
   render() {
+    let actions = {
+      addUser: this.props.addUser,
+      editUser: this.props.editUser,
+      deleteUser: this.props.deleteUser
+    };
+
     return (
-      <UserList users={this.props.users} addUser={this.props.addUser} />
+      <UserList users={this.props.users} actions={actions} />
     );
   }
 }

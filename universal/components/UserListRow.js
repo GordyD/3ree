@@ -5,6 +5,8 @@ export default class UserListRow extends Component {
   static propTypes = {
     row: PropTypes.number.isRequired,
     user: PropTypes.object.isRequired,
+    editUser: PropTypes.func,
+    deleteUser: PropTypes.func,
     editable: PropTypes.bool
   };
 
@@ -12,22 +14,42 @@ export default class UserListRow extends Component {
     editable: false
   };
 
+  handleClick() {
+    this.setState({ editing: true });
+  }
+
+  handleEditUser(user) {
+    this.props.editUser(user);
+    this.setState({ editing: false });
+  }
+
   render() {
     const { row, user } = this.props;
     const className = (row % 2 === 0) ? 'even' : 'odd';
+    let row;
 
-   return (
-      <tr className={className}>
-        <td>{user.firstName}</td>
-        <td>{user.lastName}</td>
-        <td>{user.address1}</td>
-        <td>{user.address2}</td>
-        <td>{user.city}</td>
-        <td>{user.state}</td>
-        <td>{user.zipcode}</td>
-        {/* TODO(stedman): Add button here to edit or delete the user. */}
-        <td>EDIT</td>
-      </tr>
+    if (this.state.editing) {
+      element = (
+        <UserInput onSubmit={this.handleEditUser} editing={true} />
+      );
+    } else {
+      element = (
+        <tr className={className}>
+          <td>{user.firstName}</td>
+          <td>{user.lastName}</td>
+          <td>{user.address1}</td>
+          <td>{user.address2}</td>
+          <td>{user.city}</td>
+          <td>{user.state}</td>
+          <td>{user.zipcode}</td>
+          <td>
+            <button type='submit' className='save pure-button' onClick={::this.handleClick}>Edit</button>
+          </td>
+        </tr>
+      );
+    }
+
+    return (
     );
   }
 }

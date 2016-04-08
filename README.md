@@ -7,6 +7,50 @@ Q:
 - [ ] Check that the UserList is rendering properly
 - [ ] Create User Actions
 
+edit UserInput.js
+
+server.js
+  add post endpoint editUser
+  add delete endpoint deleteUser
+
+http.js
+  editUser
+  deleteUser
+
+api/service/user.js
+  editUser
+  deleteUser
+
+ActionTypes.js
+  EDIT_USER_REQUEST
+  EDIT_USER_SUCCESS
+  EDIT_USER_FAILURE
+  DELETE_USER_REQUEST
+  DELETE_USER_SUCCESS
+  DELETE_USER_FAILURE
+
+reducers/pulse.js
+  EDIT_USER_REQUEST
+  EDIT_USER_SUCCESS
+  EDIT_USER_FAILURE
+  DELETE_USER_REQUEST
+  DELETE_USER_SUCCESS
+  DELETE_USER_FAILURE
+
+universal/actions/PulseActions.js
+  editUser
+  editUserRequest
+  editUserSuccess
+  editUserFailure
+  deleteUser
+  deleteUserRequest
+  deleteUserSuccess
+  deleteUserFailure
+
+
+
+
+
 ## 3REE
 [![Circle CI](https://circleci.com/gh/GordyD/3ree.svg?style=svg)](https://circleci.com/gh/GordyD/3ree)
 
