@@ -48,6 +48,9 @@ export function loadEventsFailure(error) {
   };
 }
 
+// -------------------------------------------------------
+// Add User
+// -------------------------------------------------------
 export function addUser(user) {
   console.log('Add User', user);
 
@@ -89,6 +92,14 @@ export function addUserFailure(error, user) {
   };
 }
 
+// -------------------------------------------------------
+// Delete User
+// -------------------------------------------------------
+
+
+// -------------------------------------------------------
+// Add Event
+// -------------------------------------------------------
 export function addEvent(event) {
   console.log('Add event', event);
   return dispatch => {
@@ -129,6 +140,9 @@ export function addEventFailure(error, event) {
   };
 }
 
+// -------------------------------------------------------
+// Delete Event
+// -------------------------------------------------------
 export function deleteEvent(event) {
   return dispatch => {
     dispatch(deleteEventRequest(event));
@@ -168,6 +182,9 @@ export function deleteEventFailure(error, event) {
   };
 }
 
+// -------------------------------------------------------
+// Edit Event
+// -------------------------------------------------------
 export function editEvent(event) {
   return dispatch => {
     dispatch(editEventRequest(event));

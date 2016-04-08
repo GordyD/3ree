@@ -14,6 +14,13 @@ export default class UserListRow extends Component {
     editable: false
   };
 
+  constructor(props, context){
+    super(props, context);
+    this.state = {
+      editing: false
+    };
+  }
+
   handleClick() {
     this.setState({ editing: true });
   }
@@ -26,7 +33,7 @@ export default class UserListRow extends Component {
   render() {
     const { row, user } = this.props;
     const className = (row % 2 === 0) ? 'even' : 'odd';
-    let row;
+    let element;
 
     if (this.state.editing) {
       element = (
@@ -49,7 +56,6 @@ export default class UserListRow extends Component {
       );
     }
 
-    return (
-    );
+    return element;
   }
 }
