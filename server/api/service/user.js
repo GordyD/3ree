@@ -16,7 +16,7 @@ export function liveUserUpdates(io) {
       console.log('Listening for changes to \'users\' table...');
       cursor.each((err, change) => {
         console.log('Change detected (users table)', change);
-        io.emit('event-change', change);
+        io.emit('user-change', change);
       });
     });
   });
@@ -28,5 +28,25 @@ export function getUsers() {
     return r
     .table('users').run(conn)
     .then(cursor => cursor.toArray());
+  });
+}
+
+export function addUser(user) {
+  return connect()
+  .then(conn => {
+    user.created = new Date();
+    user.firstName = xss(user.firstName);
+    user.lastName = xss(user.lastName);
+    user.address1 = xss(user.address1);
+    user.address2 = xss(user.address2);
+    user.city = xss(user.city);
+    user.state = xss(user.state);
+    user.zipcode = xss(user.zipcode);
+    return r
+    .table('users')
+    .insert(user).run(conn)
+    .then(response => {
+      return Object.assign({}, user, {id: response.generated_keys[0]});
+    });
   });
 }

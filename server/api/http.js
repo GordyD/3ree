@@ -13,6 +13,15 @@ export function getUsers(req, res) {
   });
 }
 
+export function addUser(req, res) {
+  userService.addUser(req.body)
+  .then((users) => res.json(users))
+  .catch(err => {
+    res.status(400);
+    res.json({error: err, user: req.body});
+  });
+}
+
 // ----------------------------------
 // Events
 // ----------------------------------
