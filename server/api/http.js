@@ -22,6 +22,24 @@ export function addUser(req, res) {
   });
 }
 
+export function editUser(req, res) {
+  userService.editUser(req.params.id, req.body)
+  .then((user) => res.json(user))
+  .catch(err => {
+    res.status(400);
+    res.json({error: err, user: req.body});
+  });
+}
+
+export function deleteUser(req, res) {
+  userService.deleteUser(req.params.id)
+  .then((user) => res.json(user))
+  .catch(err => {
+    res.status(400);
+    res.json({error: err, user: req.body});
+  });
+}
+
 // ----------------------------------
 // Events
 // ----------------------------------

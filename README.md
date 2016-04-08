@@ -7,6 +7,7 @@ Q:
 - [ ] Check that the UserList is rendering properly
 - [ ] Create User Actions
 
+#### Front end:
 UserScreen
   Pass addUser, editUser, and deleteUser down from the UserScreen container as `actions`
   Those functions are defined in Redux ? and passed in via `connect()`
@@ -14,9 +15,6 @@ UserScreen
 UserList receives those actions,
   passes addUser to renderFooter
   passes the spread actions `{...actions}` to UserListRow
-
-
-
 
 edit UserInput.js
 
