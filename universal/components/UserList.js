@@ -21,7 +21,7 @@ export default class EventList extends Component {
 
     if (users.length > 0) {
       list = users.map((user, key) =>
-        <UserListRow key={key} row={key} user={user} {...actions} />
+        <UserListRow key={key} row={key} id={user.id} user={user} {...actions} />
       );
     } else {
       list = <tr>

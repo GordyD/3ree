@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class EventInput extends Component {
+export default class UserInput extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     editing: PropTypes.bool

@@ -1,8 +1,11 @@
 import React, {PropTypes, Component} from 'react';
 import moment from 'moment';
 
+import UserInput from './UserInput';
+
 export default class UserListRow extends Component {
   static propTypes = {
+    id: PropTypes.any.isRequired,
     row: PropTypes.number.isRequired,
     user: PropTypes.object.isRequired,
     editUser: PropTypes.func,
@@ -26,18 +29,19 @@ export default class UserListRow extends Component {
   }
 
   handleEditUser(user) {
+    console.log(this.props.editUser);
     this.props.editUser(user);
     this.setState({ editing: false });
   }
 
   render() {
-    const { row, user } = this.props;
+    const { row, id, user } = this.props;
     const className = (row % 2 === 0) ? 'even' : 'odd';
     let element;
 
     if (this.state.editing) {
       element = (
-        <UserInput onSubmit={this.handleEditUser} editing={true} />
+        <UserInput onSubmit={ (user) => this.handleEditUser(Object.assign({}, user, {id: id})) } editing={true} />
       );
     } else {
       element = (
