@@ -43,24 +43,34 @@ export default class UserListRow extends Component {
   }
 
   render() {
-    const { row, id, user, user: {firstName, lastName} } = this.props;
+    const { row, id, user: {firstName, lastName, address1, address2, city, state, zipcode} } = this.props;
     const className = (row % 2 === 0) ? 'even' : 'odd';
     let element;
 
     if (this.state.editing) {
       element = (
-        <UserInput onSubmit={ (user) => this.handleEditUser(Object.assign({}, user, {id: id})) } editing={true} />
+        <UserInput
+          editing={true}
+          onSubmit={ (user) => this.handleEditUser(Object.assign({}, user, {id: id})) }
+          firstName={firstName}
+          lastName={lastName}
+          address1={address1}
+          address2={address2}
+          city={city}
+          state={state}
+          zipcode={zipcode}
+        />
       );
     } else {
       element = (
         <tr className={className}>
-          <td>{user.firstName}</td>
-          <td>{user.lastName}</td>
-          <td>{user.address1}</td>
-          <td>{user.address2}</td>
-          <td>{user.city}</td>
-          <td>{user.state}</td>
-          <td>{user.zipcode}</td>
+          <td>{firstName}</td>
+          <td>{lastName}</td>
+          <td>{address1}</td>
+          <td>{address2}</td>
+          <td>{city}</td>
+          <td>{state}</td>
+          <td>{zipcode}</td>
           <td>
             <button type='submit' className='save pure-button' onClick={(user) => this.handleDelete(Object.assign({}, user, {id: id, firstName, lastName} ))}>Delete</button>
             <button type='submit' className='save pure-button' onClick={::this.handleClickEdit}>Edit</button>
