@@ -3,14 +3,14 @@ import React, {PropTypes, Component} from 'react';
 import UserListRow from './UserListRow';
 import UserInput from './UserInput';
 
-export default class EventList extends Component {
+export default class UserList extends Component {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     users: PropTypes.array.isRequired
   };
 
   renderFooter() {
-    const addUser = this.props.actions;
+    const { addUser }  = this.props.actions;
 
     return <UserInput onSubmit={addUser} />;
   }

@@ -36,8 +36,8 @@ app.use(bodyParser.json());
 // ----------------------------------
 app.get('/api/0/users', api.getUsers);
 app.post('/api/0/users', api.addUser);
-app.post('api/0/users/:id', api.editUser);
-app.delete('api/0/users/:id', api.deleteUser);
+app.post('/api/0/users/:id', api.editUser);
+app.delete('/api/0/users/:id', api.deleteUser);
 
 // ----------------------------------
 // Events

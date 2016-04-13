@@ -42,15 +42,15 @@ export default class EventItem extends Component {
 
     if (this.state.editing) {
       element = (
-        <EventInput text={event.text} 
+        <EventInput text={event.text}
                     value={event.value}
-                    userId={event.userId} 
+                    userId={event.userId}
                     editing={this.state.editing}
                     valueLabel='Rating'
                     onSubmit={ (event) => this.handleSave(Object.assign({}, event, { id: id })) } />
       );
     } else {
-      let del = (this.props.editable) ? 
+      let del = (this.props.editable) ?
         <button className='destroy pure-button' onClick={ () => deleteEvent(event) } /> :
         null;
       element = (
@@ -58,7 +58,7 @@ export default class EventItem extends Component {
           <p className='rowNumber'>{row+1}.</p>
           <p className='title' onClick={::this.handleClick}>
             {event.text}
-            
+
           </p>
           {del}
           <p className='created'>{moment(modified).fromNow()}</p>

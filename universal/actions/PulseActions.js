@@ -142,16 +142,16 @@ export function editUser(user) {
     dispatch(editUserRequest(user));
 
     return request
-    .post(usersUrl)
-    .send(user)
-    .set('Accept', 'application/json')
-    .end((err, res) => {
-      if (err) {
-        dispatch(editUserFailure(err, user));
-      } else {
-        dispatch(editUserSuccess(res.body));
-      }
-    });
+      .post(usersUrl + '/' + user.id)
+      .send(user)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if (err) {
+          dispatch(editUserFailure(err, user));
+        } else {
+          dispatch(editUserSuccess(res.body));
+        }
+      });
   };
 }
 

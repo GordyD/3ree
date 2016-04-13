@@ -54,7 +54,7 @@ export default function pulses(state = initialState, action) {
       return Object.assign({}, state, {
         isWorking: false,
         error: null,
-        users: this.state.users.map(existingUser =>
+        users: state.users.map(existingUser =>
           existingUser.id === action.user.id ?
             action.user :
             existingUser
@@ -71,7 +71,7 @@ export default function pulses(state = initialState, action) {
       return Object.assign({}, state, {
         isWorking: false,
         error: null,
-        users: this.state.users.filter(existingUser =>
+        users: state.users.filter(existingUser =>
           existingUser.id !== action.user.id)
       });
 

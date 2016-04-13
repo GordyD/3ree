@@ -24,12 +24,15 @@ export default class UserListRow extends Component {
     };
   }
 
-  handleClick() {
+  handleClickEdit() {
     this.setState({ editing: true });
   }
 
+  handleDelete(user) {
+    this.props.deleteUser(user);
+  }
+
   handleEditUser(user) {
-    console.log(this.props.editUser);
     this.props.editUser(user);
     this.setState({ editing: false });
   }
@@ -54,7 +57,8 @@ export default class UserListRow extends Component {
           <td>{user.state}</td>
           <td>{user.zipcode}</td>
           <td>
-            <button type='submit' className='save pure-button' onClick={::this.handleClick}>Edit</button>
+            <button type='submit' className='save pure-button' onClick={(user) => this.handleDelete(Object.assign({}, user, {id: id} ))}>Delete</button>
+            <button type='submit' className='save pure-button' onClick={::this.handleClickEdit}>Edit</button>
           </td>
         </tr>
       );
