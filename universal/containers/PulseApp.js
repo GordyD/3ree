@@ -22,27 +22,31 @@ class PulseApp extends Component {
   };
 
   render() {
-    let actions = { 
-      editEvent: this.props.editEvent, 
+    let actions = {
+      editEvent: this.props.editEvent,
       deleteEvent: this.props.deleteEvent
     };
 
     return (
       <div className="Pulse-Container">
         <Header/>
-        <section className='Pulse-addEventForm'>
-          <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
-        </section>
-        <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
-        {this.props.myEvents}
-        {this.props.otherEvents}
+        {this.props.home}
+        {this.props.userScreen}
+        <div>
+          <section className='Pulse-addEventForm'>
+            <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
+          </section>
+          <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
+          {this.props.myEvents}
+          {this.props.otherEvents}
+        </div>
       </div>
     );
   }
 }
 
 /**
- * Expose "Smart" Component that is connect-ed to Redux
+ * Expose "Smart" Component that decorates PulseApp with `state` and the PulseActions' `actionCreators`.
  */
 export default connect(
   state => ({
@@ -50,6 +54,6 @@ export default connect(
     userId: state.pulseApp.userId,
     isWorking: state.pulseApp.isWorking,
     error: state.pulseApp.error
-  }), 
+  }),
   dispatch => bindActionCreators(PulseActions, dispatch)
 )(PulseApp);

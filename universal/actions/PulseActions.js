@@ -3,6 +3,7 @@ import request from 'superagent';
 
 const serverUrl = '';
 const eventsUrl = `${serverUrl}/api/0/events`;
+const usersUrl = `${serverUrl}/api/0/users`;
 
 export function setUserId(userId) {
   return {
@@ -47,6 +48,138 @@ export function loadEventsFailure(error) {
   };
 }
 
+// -------------------------------------------------------
+// Add User
+// -------------------------------------------------------
+export function addUser(user) {
+  console.log('Add User', user);
+
+  return dispatch => {
+    dispatch(addUserRequest(user));
+
+    return request
+    .post(usersUrl)
+    .send(user)
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if (err) {
+        dispatch(addUserFailure(err, event));
+      } else {
+        dispatch(addUserSuccess(res.body));
+      }
+    });
+  };
+}
+
+export function addUserRequest(user) {
+  return {
+    type: types.ADD_USER_REQUEST,
+    user
+  };
+}
+
+export function addUserSuccess(user) {
+  return {
+    type: types.ADD_USER_SUCCESS,
+    user
+  };
+}
+
+export function addUserFailure(error, user) {
+  return {
+    type: types.ADD_USER_FAILURE,
+    error
+  };
+}
+
+// -------------------------------------------------------
+// Delete User
+// -------------------------------------------------------
+export function deleteUser(user) {
+  return dispatch => {
+    dispatch(deleteUserRequest(user));
+
+    return request
+    .del(usersUrl + '/' + user.id)
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if (err) {
+        dispatch(deleteUserFailure(err, user));
+      } else {
+        dispatch(deleteUserSuccess(res.body));
+      }
+    });
+  };
+}
+
+export function deleteUserRequest(user) {
+  return {
+    type: types.DELETE_USER_REQUEST,
+    user
+  };
+}
+
+export function deleteUserSuccess(user) {
+  return {
+    type: types.DELETE_USER_SUCCESS,
+    user
+  };
+}
+
+export function deleteUserFailure(error, user) {
+  return {
+    type: types.DELETE_USER_FAILURE,
+    error,
+    user
+  };
+}
+
+// -------------------------------------------------------
+// Edit User
+// -------------------------------------------------------
+export function editUser(user) {
+  return dispatch => {
+    dispatch(editUserRequest(user));
+
+    return request
+      .post(usersUrl + '/' + user.id)
+      .send(user)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if (err) {
+          dispatch(editUserFailure(err, user));
+        } else {
+          dispatch(editUserSuccess(res.body));
+        }
+      });
+  };
+}
+
+export function editUserRequest(user) {
+  return {
+    type: types.EDIT_USER_REQUEST,
+    user
+  };
+}
+
+export function editUserSuccess(user) {
+  return {
+    type: types.EDIT_USER_SUCCESS,
+    user
+  };
+}
+
+export function editUserFailure(error, user) {
+  return {
+    type: types.EDIT_USER_FAILURE,
+    error,
+    user
+  };
+}
+
+// -------------------------------------------------------
+// Add Event
+// -------------------------------------------------------
 export function addEvent(event) {
   console.log('Add event', event);
   return dispatch => {
@@ -87,6 +220,9 @@ export function addEventFailure(error, event) {
   };
 }
 
+// -------------------------------------------------------
+// Delete Event
+// -------------------------------------------------------
 export function deleteEvent(event) {
   return dispatch => {
     dispatch(deleteEventRequest(event));
@@ -126,6 +262,9 @@ export function deleteEventFailure(error, event) {
   };
 }
 
+// -------------------------------------------------------
+// Edit Event
+// -------------------------------------------------------
 export function editEvent(event) {
   return dispatch => {
     dispatch(editEventRequest(event));

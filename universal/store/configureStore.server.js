@@ -30,4 +30,4 @@ export default (req, initialState) => {
   return createStore(rootReducer, initialState, enhancer);
 };
 
-    
+

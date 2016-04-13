@@ -63,7 +63,7 @@ export default class EventInput extends Component {
         <fieldset>
           <input type='text' placeholder={this.props.textLabel} autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
           <label htmlFor='value'>{this.props.valueLabel}</label>
-          <input className={className} type='range' id='value' min='1' max='100' value={this.state.value} onChange={::this.handleValueChange} /> 
+          <input className={className} type='range' id='value' min='1' max='100' value={this.state.value} onChange={::this.handleValueChange} />
           <span className='Pulse-eventInput-value'>{this.state.value}</span>
           <button type='submit' className='save pure-button' onClick={::this.handleSubmit}>{saveText}</button>
         </fieldset>

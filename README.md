@@ -1,3 +1,69 @@
+#### NOTES
+TODO
+Q: why is the serverside rendering issue happening?
+Q:
+
+- [ ] Create UserItem component
+- [ ] Check that the UserList is rendering properly
+- [ ] Create User Actions
+
+#### Front end:
+UserScreen
+  Pass addUser, editUser, and deleteUser down from the UserScreen container as `actions`
+  Those functions are defined in Redux ? and passed in via `connect()`
+
+UserList receives those actions,
+  passes addUser to renderFooter
+  passes the spread actions `{...actions}` to UserListRow
+
+UserListRow
+Q: why do we need the constructor? state is otherwise undefined!?
+
+edit UserInput.js
+
+server.js
+  add post endpoint editUser
+  add delete endpoint deleteUser
+
+http.js
+  editUser
+  deleteUser
+
+api/service/user.js
+  editUser
+  deleteUser
+
+ActionTypes.js
+  EDIT_USER_REQUEST
+  EDIT_USER_SUCCESS
+  EDIT_USER_FAILURE
+  DELETE_USER_REQUEST
+  DELETE_USER_SUCCESS
+  DELETE_USER_FAILURE
+
+universal/reducers/pulse.js
+*this is what would be the dispatcher in Flux. In this case it's a master reducer: taking state and action, and passing them to the appropriate child reducers. These child reducers take the old state and the action payload, merge them, and return the new state.*
+  EDIT_USER_REQUEST
+  EDIT_USER_SUCCESS
+  EDIT_USER_FAILURE
+  DELETE_USER_REQUEST
+  DELETE_USER_SUCCESS
+  DELETE_USER_FAILURE
+
+universal/actions/PulseActions.js
+  editUser
+  editUserRequest
+  editUserSuccess
+  editUserFailure
+  deleteUser
+  deleteUserRequest
+  deleteUserSuccess
+  deleteUserFailure
+
+
+
+
+
 ## 3REE
 [![Circle CI](https://circleci.com/gh/GordyD/3ree.svg?style=svg)](https://circleci.com/gh/GordyD/3ree)
 

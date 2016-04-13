@@ -6,16 +6,16 @@ function connect() {
   return r.connect(config.get('rethinkdb'));
 }
 
-export function liveUpdates(io) {
-  console.log('Setting up listener...');
+export function liveEventUpdates(io) {
+  console.log('Setting up \'pulses\' listener...');
   connect()
   .then(conn => {
     r
     .table('pulses')
     .changes().run(conn, (err, cursor) => {
-      console.log('Listening for changes...');
+      console.log('Listening for changes to \'pulses\' table...');
       cursor.each((err, change) => {
-        console.log('Change detected', change);
+        console.log('Change detected (pulses table)', change);
         io.emit('event-change', change);
       });
     });
