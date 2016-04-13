@@ -29,7 +29,12 @@ export default class UserListRow extends Component {
   }
 
   handleDelete(user) {
-    this.props.deleteUser(user);
+    console.log(user);
+    const del = confirm('Are you sure you want to delete ' + user.firstName + ' ' + user.lastName + '?');
+
+    if (del) {
+      this.props.deleteUser(user);
+    }
   }
 
   handleEditUser(user) {
@@ -38,7 +43,7 @@ export default class UserListRow extends Component {
   }
 
   render() {
-    const { row, id, user } = this.props;
+    const { row, id, user, user: {firstName, lastName} } = this.props;
     const className = (row % 2 === 0) ? 'even' : 'odd';
     let element;
 
@@ -57,7 +62,7 @@ export default class UserListRow extends Component {
           <td>{user.state}</td>
           <td>{user.zipcode}</td>
           <td>
-            <button type='submit' className='save pure-button' onClick={(user) => this.handleDelete(Object.assign({}, user, {id: id} ))}>Delete</button>
+            <button type='submit' className='save pure-button' onClick={(user) => this.handleDelete(Object.assign({}, user, {id: id, firstName, lastName} ))}>Delete</button>
             <button type='submit' className='save pure-button' onClick={::this.handleClickEdit}>Edit</button>
           </td>
         </tr>
