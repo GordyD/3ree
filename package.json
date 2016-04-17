@@ -83,6 +83,7 @@
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
     "redux-mock-store": "0.0.6",
+    "sinon": "^1.17.3",
     "style-loader": "0.13.0",
     "stylus": "^0.53.0",
     "stylus-loader": "^1.5.1",
