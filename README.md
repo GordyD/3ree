@@ -28,10 +28,12 @@ There is a demo app hosted at [3ree-demo.workshape.io](http://3ree-demo.workshap
 
 You will need to install [RethinkDB](http://www.rethinkdb.com). You can find instruction on how to do so [here](http://rethinkdb.com/docs/install/).
 
- - Clone the repo `git clone git@github.com:GordyD/3ree.git`
- - Run `npm install`
- - If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
- - Run `npm run db-setup` to set up DB
+- Clone the repo `git clone git@github.com:GordyD/3ree.git`
+- Run `npm install`
+- Install rethinkdb `brew update && brew install rethinkdb`
+- If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
+- Run rethinkdb on a different terminal window `rethinkdb`
+- Run `npm run db-setup` to set up DB
 
 ### Running Dev Server
 
@@ -62,7 +64,3 @@ You will need to roll out your own deployment script for a server, but before yo
 | [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.12.11 |
 | [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.6.1 |
 | [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.53.0 |
-
-
-
-
