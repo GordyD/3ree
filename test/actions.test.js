@@ -10,7 +10,7 @@ var expect = chai.expect;
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import * as actions from '../universal/actions/PulseActions.js';
+import { setUserId, loadEvents, __RewireAPI__ as actions } from '../universal/actions/PulseActions.js';
 import * as types from '../universal/constants/ActionTypes';
 
 describe('Actions', () => {
@@ -23,13 +23,13 @@ describe('Actions', () => {
    */
   describe('setUserId', () => {
     it('should return action with type SET_USER_ID and userId equal to 200', () => {
-      let action = actions.setUserId(200);
+      let action = setUserId(200);
       expect(action.type).to.equal(types.SET_USER_ID);
       expect(action.userId).to.equal(200);
     });
 
     it('should return action with type SET_USER_ID and userId equal to 6700102', () => {
-      let action = actions.setUserId(6700102);
+      let action = setUserId(6700102);
       expect(action.type).to.equal(types.SET_USER_ID);
       expect(action.userId).to.equal(6700102);
     });
@@ -61,7 +61,7 @@ describe('Actions', () => {
       let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
       let store = mockStore(initialState, expectedActions, done);
 
-      store.dispatch(actions.loadEvents());
+      store.dispatch(loadEvents());
     });
 
     it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_FAILURE action when unsuccessful', (done) => {
@@ -84,7 +84,7 @@ describe('Actions', () => {
       let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
       let store = mockStore(initialState, expectedActions, done);
 
-      store.dispatch(actions.loadEvents());
+      store.dispatch(loadEvents());
     });
   });
 });
