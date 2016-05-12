@@ -26,9 +26,10 @@ There is a demo app hosted at [3ree-demo.workshape.io](http://3ree-demo.workshap
 
 ### Setup
 
-You will need to install [RethinkDB](http://www.rethinkdb.com). You can find instruction on how to do so [here](http://rethinkdb.com/docs/install/).
+You will need to install [RethinkDB](http://www.rethinkdb.com). You can find instruction on how to do so [here](http://rethinkdb.com/docs/install/). Make sure you have the latest version installed.
 
  - Clone the repo `git clone git@github.com:GordyD/3ree.git`
+ - Make sure you are using Node v6.0.0 (I recommend using [n](https://github.com/tj/n) for Node version management)
  - Run `npm install`
  - If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
  - Run `npm run db-setup` to set up DB
@@ -53,15 +54,15 @@ You will need to roll out your own deployment script for a server, but before yo
 
 | **Tech** | **Description** | **Version** |
 | ---------|-----------------|-------------|
-| [React](https://facebook.github.io/react/) | View layer | 0.14.7 |
-| [React Router](https://github.com/reactjs/react-router) | Universal routing | 2.0.0 |
-| [Redux](http://redux.js.org/) | State management | 3.1.0 |
-| [RethinkDB](http://www.rethinkdb.com) | Persistance layer | 2.2.4 |
-| [Express](http://expressjs.com/) | Node.js server framework | 4.13.3 |
-| [Socket.io]() | Used for realtime communication between clients and server | 1.4.4 |
-| [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.12.11 |
-| [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.6.1 |
-| [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.53.0 |
+| [React](https://facebook.github.io/react/) | View layer | 15.0.2 |
+| [React Router](https://github.com/reactjs/react-router) | Universal routing | 2.4.0 |
+| [Redux](http://redux.js.org/) | State management | 3.5.0 |
+| [RethinkDB](http://www.rethinkdb.com) | Persistance layer | 2.3.1 |
+| [Express](http://expressjs.com/) | Node.js server framework | 4.13.0 |
+| [Socket.io]() | Used for realtime communication between clients and server | 1.4.0 |
+| [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.13.0 |
+| [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.8.0 |
+| [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.54.0 |
 
 
 
