@@ -1,3 +1,4 @@
+/* global Promise */
 import r from 'rethinkdb';
 import config from 'config';
 

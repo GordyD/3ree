@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import { getOrSetUserId } from './UserId';
 import { setupRealtime } from './Realtime';
@@ -15,9 +16,10 @@ import '../style/pure.css';
 import '../style/main.styl';
 import '../style/spinner.styl';
 
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-  <Root store={store} routing={routes} />,
+  <Root store={store} routing={routes} history={history} />,
   document.getElementById('app')
 );
 

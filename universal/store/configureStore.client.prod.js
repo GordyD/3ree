@@ -1,9 +1,6 @@
-import { createHistory } from 'history';
-import { browserHistory } from 'react-router';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { syncHistory, routeReducer } from 'react-router-redux';
-import { persistState } from 'redux-devtools';
+import { routerReducer } from 'react-router-redux';
 
 import pulseApp from '../reducers';
 
@@ -11,13 +8,12 @@ import pulseApp from '../reducers';
 const initialState = window.__INITIAL_STATE__;
 
 const rootReducer = combineReducers({
-  routing: routeReducer,
+  routing: routerReducer,
   pulseApp
 });
 
-const reduxRouterMiddleware = syncHistory(browserHistory);
 const enhancer = compose(
-  applyMiddleware(thunkMiddleware, reduxRouterMiddleware)
+  applyMiddleware(thunkMiddleware)
 );
 
 const store = createStore(rootReducer, initialState, enhancer);
