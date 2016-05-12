@@ -40,7 +40,7 @@ describe('Actions', () => {
    */
   describe('loadEvents', () => {
     const mockStore = configureStore([thunk]);
-    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_SUCCESS action when succesful', (done) => {
+    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_SUCCESS action when succesful', () => {
       let requestMock = {
         get: () => ({
           set: () => ({
@@ -59,12 +59,16 @@ describe('Actions', () => {
       ];
       
       let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
-      let store = mockStore(initialState, expectedActions, done);
+      let store = mockStore(initialState);
 
       store.dispatch(loadEvents());
+
+      const actualActions = store.getActions();
+
+      expect(actualActions).to.eql(expectedActions);
     });
 
-    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_FAILURE action when unsuccessful', (done) => {
+    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_FAILURE action when unsuccessful', () => {
       let error = 'An Error Occurred!';
       let requestMock = {
         get: () => ({
@@ -82,9 +86,13 @@ describe('Actions', () => {
       ];
       
       let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
-      let store = mockStore(initialState, expectedActions, done);
+      let store = mockStore(initialState);
 
       store.dispatch(loadEvents());
+
+      const actualActions = store.getActions();
+
+      expect(actualActions).to.eql(expectedActions);
     });
   });
 });
