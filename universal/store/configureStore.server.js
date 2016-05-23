@@ -8,7 +8,6 @@ import pulseApp from '../reducers';
 import DevTools from '../containers/devTools';
 
 export default (req, initialState) => {
-  console.log('Server router!');
   const rootReducer = combineReducers({
     routing: routerReducer,
     pulseApp
