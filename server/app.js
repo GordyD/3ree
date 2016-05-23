@@ -20,10 +20,16 @@ export function handleRender(req, res) {
 
     // Wire up routing based upon routes
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-      if (error)  {
-        console.log('Error', error);
+      if (error || !renderProps)  {
+
+        if (req.url === '/bundle.js') {
+          console.log(' | Hold up, are you sure you are hitting the app at http://localhost:3001.');
+          console.log(' | On development bundle.js is served by the Webpack Dev Server and so you need to hit the app on port 3001, not port 3000.')
+        }
+        console.log((error) ? error : 'Error: No matching universal route found');
+
         res.status(400);
-        res.send(error);
+        res.send((error) ? error : 'Error: No matching universal route found');
         return;
       }
 
