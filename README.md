@@ -36,8 +36,13 @@ You will need to install [RethinkDB](http://www.rethinkdb.com). You can find ins
 
 ### Running Dev Server
 
- - Run `npm start` will start Webpack dev server - for serving the client, and also start the API server
- - Go to http://localhost:3001 in two seperate tabs - see changes propagate in real time (Hot Module Replacement works too)
+On Linux/OSX: `npm start`
+
+On Windows: `npm run start:win`
+
+This will start the Webpack dev server - for serving the client, as well as the server-side API.
+
+Go to http://localhost:3001 in two separate tabs - see changes propagate in real time (Hot Module Replacement works too).
 
 ### Running Production Server
 
@@ -49,6 +54,8 @@ You will need to roll out your own deployment script for a server, but before yo
  - Set up nginx or your web server of choice to map HTTP requests for your URL to `http://localhost:3000`
  - Run `npm run start:prod` to run on your server
  - Go to your URL
+
+NOTE: Production has not been tested on Windows.
 
 ### Tech Used
 
@@ -63,7 +70,3 @@ You will need to roll out your own deployment script for a server, but before yo
 | [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.13.0 |
 | [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.8.0 |
 | [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.54.0 |
-
-
-
-
