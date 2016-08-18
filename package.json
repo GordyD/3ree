@@ -28,6 +28,7 @@
     "bluebird": "3.1.x",
     "body-parser": "1.14.x",
     "classnames": "2.2.x",
+    "compression": "^1.6.2",
     "config": "1.19.x",
     "ejs": "2.3.x",
     "express": "4.13.x",
