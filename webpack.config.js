@@ -5,52 +5,25 @@ var nib = require('nib');
 
 var config = require('config');
 
-var isDev = (process.env.NODE_ENV === 'development');
-var appEntry = './client/app';
+var entry, output, plugins, loaders;
 
-var defineEnvPlugin = new webpack.DefinePlugin({
-  __DEV__: isDev
-});
-
-var entryScripts = [ appEntry ];
-var output = {
-  path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
-  filename: 'bundle.js'
-};
-
-var plugins = [
-  defineEnvPlugin,
-  new ExtractTextPlugin('style.css'),
-  new webpack.NoErrorsPlugin()
-];
-
-var moduleLoaders = [
-  {
-    test: /\.js$/,
-    loaders: [ 'babel' ],
-    exclude: /node_modules/,
-    include: __dirname
-  }, {
-    test: /\.css?$/,
-    loaders: [ ExtractTextPlugin.extract('style-loader', 'css-loader'), 'raw' ],
-    include: __dirname
-  }, {
-    test: /\.styl?$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
-    include: __dirname
-  }
-];
-
-if (isDev) {
-  output.publicPath = 'http://localhost:3001/';
-  plugins.push(new webpack.HotModuleReplacementPlugin());
-  entryScripts = [
+if (process.env.NODE_ENV === 'development') {
+  entry = [
     'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
-    appEntry
-  ];
-
-  moduleLoaders = [
+    './client/app'
+  ]
+  output = {
+    path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:3001/'
+  }
+  plugins = [
+    new webpack.DefinePlugin({ __DEV__: true }),
+    new webpack.NoErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+  loaders = [
     {
       test: /\.js$/,
       loaders: [ 'react-hot', 'babel' ],
@@ -65,16 +38,45 @@ if (isDev) {
       loaders: [ 'style-loader', 'css-loader', 'stylus-loader' ],
       include: __dirname
     }
-  ];
+  ]
+} else {
+  entry = './client/app'
+  output = {
+    path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
+    filename: 'bundle.js'
+  }
+  plugins = [
+    new webpack.DefinePlugin({ __DEV__: false, 'process.env.NODE_ENV': '"production"' }),
+    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('style.css'),
+    new webpack.NoErrorsPlugin()
+  ]
+  loaders = [
+    {
+      test: /\.js$/,
+      loaders: [ 'babel' ],
+      exclude: /node_modules/,
+      include: __dirname
+    }, {
+      test: /\.css?$/,
+      loaders: [ ExtractTextPlugin.extract('style-loader', 'css-loader'), 'css-loader' ],
+      include: __dirname
+    }, {
+      test: /\.styl?$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
+      include: __dirname
+    }
+  ]
 }
 
 module.exports = {
-  devtool: 'eval',
-  entry: entryScripts,
+  devtool: 'source-map',
+  entry: entry,
   output: output,
   plugins: plugins,
   module: {
-    loaders: moduleLoaders
+    loaders: loaders
   },
   stylus: {
     use: [ nib() ]

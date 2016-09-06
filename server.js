@@ -1,6 +1,7 @@
 import path from 'path';
 import bodyParser from 'body-parser';
 import express from 'express';
+import compress from 'compression';
 import http from 'http';
 import socketIO from 'socket.io';
 import config from 'config';
@@ -21,6 +22,7 @@ app.set('view engine', 'ejs');
 /**
  * Server middleware
  */
+app.use(compress());
 app.use(require('serve-static')(path.join(__dirname, config.get('buildDirectory'))));
 app.use(bodyParser.urlencoded({
   extended: true
