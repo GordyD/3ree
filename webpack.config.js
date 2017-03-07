@@ -5,69 +5,91 @@ var nib = require('nib');
 
 var config = require('config');
 
-var entry, output, plugins, loaders;
+var entry, output, plugins, rules;
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'production') {
   entry = [
     'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
-    './client/app'
-  ]
+    './client/app',
+  ];
   output = {
     path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:3001/'
-  }
+    publicPath: 'http://localhost:3001/',
+  };
   plugins = [
     new webpack.DefinePlugin({ __DEV__: true }),
-    new webpack.NoErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ]
-  loaders = [
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ];
+  rules = [
     {
       test: /\.js$/,
-      loaders: [ 'react-hot', 'babel' ],
+      use: [ 'react-hot-loader', 'babel-loader' ],
       exclude: /node_modules/,
       include: __dirname
     }, {
       test: /\.css?$/,
-      loaders: [ 'style-loader', 'css-loader' ],
+      use: [ 'style-loader', 'css-loader' ],
       include: __dirname
     }, {
       test: /\.styl?$/,
-      loaders: [ 'style-loader', 'css-loader', 'stylus-loader' ],
+      use: [ 'style-loader', 'css-loader', 'stylus-loader' ],
       include: __dirname
-    }
-  ]
+    },
+  ];
 } else {
-  entry = './client/app'
+  entry = './client/app';
   output = {
     path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
     filename: 'bundle.js'
-  }
+  };
   plugins = [
     new webpack.DefinePlugin({ __DEV__: false, 'process.env.NODE_ENV': '"production"' }),
     new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
     new ExtractTextPlugin('style.css'),
-    new webpack.NoErrorsPlugin()
-  ]
-  loaders = [
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
+    new webpack.LoaderOptionsPlugin({
+      test: /\.styl$/,
+      stylus: {
+        default: {
+          use: [nib()],
+        },
+      },
+    }),
+  ];
+  rules = [
     {
       test: /\.js$/,
-      loaders: [ 'babel' ],
+      use: [ 'babel-loader' ],
       exclude: /node_modules/,
       include: __dirname
     }, {
       test: /\.css?$/,
-      loaders: [ ExtractTextPlugin.extract('style-loader', 'css-loader'), 'css-loader' ],
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: 'css-loader'
+      }),
       include: __dirname
     }, {
       test: /\.styl?$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
-      include: __dirname
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader',
+          'stylus-loader',
+        ],
+      }),
+      include: __dirname,
     }
-  ]
+  ];
 }
 
 module.exports = {
@@ -76,9 +98,6 @@ module.exports = {
   output: output,
   plugins: plugins,
   module: {
-    loaders: loaders
+    rules: rules,
   },
-  stylus: {
-    use: [ nib() ]
-  }
 };
