@@ -7,7 +7,7 @@ var config = require('config');
 
 var entry, output, plugins, rules;
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'production') {
   entry = [
     'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',

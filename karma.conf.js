@@ -9,15 +9,16 @@ module.exports = function (config) {
     colors: true,
     frameworks: [ 'mocha', 'sinon', 'chai' ], // Mocha is our testing framework of choice
     files: [
-      'tests.webpack.js'
+      './tests.webpack.js',
     ],
     preprocessors: {
       'tests.webpack.js': [ 'webpack' ] // Preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'mocha' ],
     webpack: { // Simplified Webpack configuration
+      entry: webpackConfig.entry,
       module: {
-        loaders: webpackConfig.module.loaders,
+        rules: webpackConfig.module.rules,
         noParse: [
             /node_modules\/sinon/,
         ]
