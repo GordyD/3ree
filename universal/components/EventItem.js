@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import moment from 'moment';
+import distanceInWords from 'date-fns/distance_in_words';
 import EventInput from './EventInput';
 
 export default class EventItem extends Component {
@@ -61,7 +61,7 @@ export default class EventItem extends Component {
             
           </p>
           {del}
-          <p className='created'>{moment(modified).fromNow()}</p>
+          <p className='created'>{distanceInWords(new Date, new Date(modified), {addSuffix: true})}</p>
           <p className='outcome'>{event.value}</p>
         </div>
       );
