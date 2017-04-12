@@ -24,7 +24,7 @@ This project is useful for:
 
 ### Demo
 
-There is a demo app hosted at [3ree-demo.workshape.io](http://3ree-demo.workshape.io). Check it out. If it is down, please email me at gordon@workshape.io
+There is a demo app hosted at [3ree-demo.workshape.io](http://3ree-demo.workshape.io). Check it out. If it is down, please email  tanc@workshape.io
 
 ### Setup
 
