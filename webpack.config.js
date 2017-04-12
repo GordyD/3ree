@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
   ];
   output = {
     path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: 'http://localhost:3001/',
   };
   plugins = [
@@ -26,7 +26,25 @@ if (process.env.NODE_ENV !== 'production') {
   rules = [
     {
       test: /\.js$/,
-      use: [ 'react-hot-loader', 'babel-loader' ],
+      use: [ 
+        'react-hot-loader', 
+        { 
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            comments: false,
+            presets: [
+              'es2015',
+              'stage-0',
+              'react',
+              'react-hmre',
+            ],
+            plugins: [
+              'rewire',
+            ],
+          },
+        },
+      ],
       exclude: /node_modules/,
       include: __dirname
     }, {
@@ -38,16 +56,33 @@ if (process.env.NODE_ENV !== 'production') {
       use: [ 'style-loader', 'css-loader', 'stylus-loader' ],
       include: __dirname
     },
+    {
+     test: /\.(jpe?g|gif|png)$/,
+     use: 'file-loader?emitFile=false&name=[path][name].[ext]'
+    }
   ];
 } else {
-  entry = './client/app';
+  entry = {
+    main: './client/app',
+    vendor: [
+      'date-fns/distance_in_words',
+      'react', 
+      'react-dom',
+      'react-redux',
+      'react-router-redux',
+      'react-router',
+      'redux-thunk',
+      'redux',
+      'socket.io-client',
+      'superagent'
+    ],
+  };
   output = {
     path: path.join(__dirname, [ '/', config.get('buildDirectory') ].join('')),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   };
   plugins = [
-    new webpack.DefinePlugin({ __DEV__: false, 'process.env.NODE_ENV': '"production"' }),
-    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
+    new webpack.DefinePlugin({ __DEV__: false, 'process.env.NODE_ENV': "'production'" }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
     }),
@@ -64,21 +99,37 @@ if (process.env.NODE_ENV !== 'production') {
         },
       },
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: 2,
+    }),
   ];
   rules = [
     {
       test: /\.js$/,
-      use: [ 'babel-loader' ],
+      loader: 'babel-loader',
+      options: {
+        babelrc: false,
+        comments: false,
+        presets: [
+          'es2015',
+          'stage-0',
+          'react',
+        ],
+      },
       exclude: /node_modules/,
       include: __dirname
-    }, {
+    }, 
+    {
       test: /\.css?$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: 'css-loader'
       }),
       include: __dirname
-    }, {
+    }, 
+    {
       test: /\.styl?$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
@@ -88,6 +139,10 @@ if (process.env.NODE_ENV !== 'production') {
         ],
       }),
       include: __dirname,
+    },
+    {
+     test: /\.(jpe?g|gif|png)$/,
+     use: 'file-loader?emitFile=false&name=[path][name].[ext]'
     }
   ];
 }

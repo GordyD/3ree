@@ -7,13 +7,17 @@
       <link href="/style.css" rel="stylesheet" type="text/css">
     <% } %>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preload" as="script" href="/0.bundle.js">
+    <link rel="preload" as="script" href="/1.bundle.js">
   </head>
   <body>
     <div id="app"><div><%- html %></div></div>
     <script>
       window.__INITIAL_STATE__ = <%- initialState %>;
     </script>
-    <script src="/bundle.js">
+    <script src="/vendor.bundle.js">
+    </script>
+    <script src="/main.bundle.js" async>
     </script>
   </body>
 </html>

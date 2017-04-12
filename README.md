@@ -12,11 +12,13 @@ This project is useful for:
  - understanding how to handle asyncronousity in Redux action creators
  - seeing how you can use Socket.io with Redux
  - building your own Redux powered application
+ - seeing how you can use System.import() with React Router + Webpack2 to acheive code splitting for different routes of your application
  - forking so that you can build your own 3REE stack app!
 
 ### Main Features
 
- - Universal (Isomorphic) Javascript
+ - Universal (Isomorphic) Javascript Application
+ - Use of Webpack 2's Code Splitting and Tree Shaking features
  - Asyncronous Redux actions example
  - Use of RethinkDB Changefeeds for realtime updates reflected in the UI
 
@@ -59,14 +61,14 @@ NOTE: Production has not been tested on Windows.
 
 ### Tech Used
 
-| **Tech** | **Description** | **Version** |
-| ---------|-----------------|-------------|
-| [React](https://facebook.github.io/react/) | View layer | 15.0.2 |
-| [React Router](https://github.com/reactjs/react-router) | Universal routing | 2.4.0 |
-| [Redux](http://redux.js.org/) | State management | 3.5.0 |
-| [RethinkDB](http://www.rethinkdb.com) | Persistance layer | 2.3.1 |
-| [Express](http://expressjs.com/) | Node.js server framework | 4.13.0 |
-| [Socket.io]() | Used for realtime communication between clients and server | 1.4.0 |
-| [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.13.0 |
-| [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.8.0 |
-| [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.54.0 |
+| **Tech** | **Description** |
+| ---------|-----------------|
+| [React](https://facebook.github.io/react/) | View layer |
+| [React Router](https://github.com/reactjs/react-router) | Universal routing |
+| [Redux](http://redux.js.org/) | State management |
+| [RethinkDB](http://www.rethinkdb.com) | Persistance layer |
+| [Express](http://expressjs.com/) | Node.js server framework |
+| [Socket.io]() | Used for realtime communication between clients and server |
+| [Webpack](https://webpack.github.io/) | Module bundling + build for client |
+| [Superagent](https://github.com/visionmedia/superagent) | Universal http requests |
+| [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS |

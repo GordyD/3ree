@@ -1,7 +1,13 @@
 {
-  "presets": ["react", "es2015" , "stage-0"],
+  "comments": false,
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
+  ],
   "plugins": [
-    "rewire"
+    "rewire",
+    "system-import-transformer"
   ],
   "env": {
     "start": {
