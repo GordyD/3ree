@@ -12,7 +12,7 @@ export default class EventTicker extends Component {
 
     const otherEvents = events.filter(row => row.userId !== userId );
 
-    let cumulative = otherEvents.reduce((x, event) =>  event.value + x, 0);
+    let cumulative = otherEvents.reduce((x, event) => new Number(event.value) + x, 0);
     let average = (otherEvents.length > 0) ? Math.round(cumulative/otherEvents.length) : 0;
     let editable = false;
 
