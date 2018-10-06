@@ -12,7 +12,7 @@ This project is useful for:
  - understanding how to handle asyncronousity in Redux action creators
  - seeing how you can use Socket.io with Redux
  - building your own Redux powered application
- - seeing how you can use System.import() with React Router + Webpack2 to acheive code splitting for different routes of your application
+ - seeing how you can use System.import() with React Router + Webpack2 to achieve code splitting for different routes of your application
  - forking so that you can build your own 3REE stack app!
 
 ### Main Features
